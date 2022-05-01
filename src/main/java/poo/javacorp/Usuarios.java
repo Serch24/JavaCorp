@@ -1,6 +1,8 @@
 package poo.javacorp;
 
-public class Usuarios {
+import java.io.Serializable;
+
+public abstract class Usuarios implements Serializable{
     private String nombre;
     private String correoElectronico;
     private String clave;
@@ -20,5 +22,41 @@ public class Usuarios {
         this.ciudadDireccion = ciudadDireccion;
         this.telefono = telefono;
     }
+
+
+	public abstract String getNombre();
+
+	public abstract void setNombre(String nombre);
+
+	public abstract String getCorreoElectronico();
+
+	public abstract void setCorreoElectronico(String correoElectronico);
+
+	public abstract String getClave();
+
+	public abstract void setClave(String clave);
+
+	public abstract String getCalleDireccion();
+
+	public abstract void setCalleDireccion(String calleDireccion);
+
+	public abstract int getNumeroDireccion();
+
+	public abstract void setNumeroDireccion(int numeroDireccion);
+
+	public abstract int getCpDireccion();
+
+	public abstract void setCpDireccion(int cpDireccion);
+
+	public abstract String getCiudadDireccion();
+
+	public abstract void setCiudadDireccion(String ciudadDireccion);
+
+	public abstract int getTelefono();
+
+	public abstract void setTelefono(int telefono);
+	
+	@Override
+	public abstract String toString();
 
 }
