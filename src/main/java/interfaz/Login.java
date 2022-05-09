@@ -8,7 +8,7 @@ import java.util.HashMap;
 import poo.javacorp.Usuarios;
 
 public class Login extends javax.swing.JFrame {
-	Usuarios usuario;
+	
 	private HashMap<String, Usuarios> todosLosUsuarios = new HashMap<>();
 
 	public Login() {
@@ -16,24 +16,33 @@ public class Login extends javax.swing.JFrame {
 		this.setLocationRelativeTo(null);
 	}
 	
-	public void comprobarCredenciales(String usuario, String password){
-		
+	// COMPRUEBVA CREDENCIALES
+	public Usuarios comprobarCredenciales(String usuarioo, String password){
+		Usuarios usuario = null;
+		boolean existeUsuario;
 		String path = "src/main/java/ficheros/usuarioss.dat";
 		try {
-			FileInputStream fs = new FileInputStream(path);
+			FileInputStream fs = new FileInputStream(path); //
 			ObjectInputStream ois = new ObjectInputStream(fs);
-			this.todosLosUsuarios = (HashMap<String, Usuarios>) ois.readObject(); // se guardan todos los usuarios en el arraylist.
-			System.out.println(this.todosLosUsuarios);
+			this.todosLosUsuarios = (HashMap<String, Usuarios>) ois.readObject(); // se guardan todos los usuarios en el Hashmap.			
+			this.todosLosUsuarios.forEach((cadaUsuario, valor) -> System.out.println(cadaUsuario + " = " + valor));
+			existeUsuario = this.todosLosUsuarios.entrySet().stream().filter( cadaUsuario -> usuarioo.equals(cadaUsuario.getValue().getCorreoElectronico()) && cadaUsuario.getValue().getClave().equals(password)).findFirst().isEmpty(); // recorre cada usuario que este en el hashmap y lo filtra por el correo y por la contraseña.
 				
 		} catch (FileNotFoundException ex) {
-			System.out.println(ex);
+			existeUsuario = false;
 		} catch (IOException | ClassNotFoundException ex) {
-			System.out.println(ex + " aaaaaaaaa");
+			existeUsuario = false;
 		}
 		
-		Loged log = new Loged();
-		this.dispose();
-		log.setVisible(true);
+		if(!existeUsuario){
+			try{
+				usuario = this.todosLosUsuarios.entrySet().stream().filter( llave -> usuarioo.equals(llave.getValue().getCorreoElectronico())).findFirst().get().getValue();
+			}catch(Exception e){
+				usuario = null;
+			}
+		}
+		
+		return usuario;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -151,7 +160,15 @@ public class Login extends javax.swing.JFrame {
         private void botonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLoginActionPerformed
                 
 		if(!this.username.getText().equals("") && !password.getText().equals("")){
-			comprobarCredenciales(this.username.getText(), password.getText());
+			Usuarios s = comprobarCredenciales(this.username.getText(), password.getText());
+			if(s != null){
+				Loged log = new Loged(s);
+				this.dispose();
+				log.setVisible(true);
+			}else{
+				confirmarLogin.setText("Credenciales incorrectas, vuelve a intentarlo.");
+			}
+			
 		}else{
 			confirmarLogin.setText("Por favor, rellenar todos los compos solicitados.");
 		}

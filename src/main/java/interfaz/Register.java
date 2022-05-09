@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import poo.javacorp.Clientes;
 import poo.javacorp.Empresas;
 import poo.javacorp.Usuarios;
 
@@ -327,17 +328,20 @@ public class Register extends javax.swing.JFrame {
 	
 	//Se comprueba que no hayan campos vacios
 	private void registrarBotonActionPerformed(java.awt.event.ActionEvent evt) {                                               
+		Usuarios clienteEmpresaCreada;
 		if (todosLosCamposLlenos()) {
 			if(this.checkEmpresa.isSelected()){
-				Empresas empresaCreada = new Empresas(this.NombreUsuario.getText(), this.correoUsuario.getText(), this.passUsuario.getText(), this.calleUsuario.getText(), Integer.parseInt(this.numCalleUsuario.getText()), Integer.parseInt(this.cpUsuario.getText()), this.ciudadUsuario.getText(), Integer.parseInt(this.telUsuario.getText()), this.dniCifBox.getText(),this.webBox.getText());
-				
-				if(guardarObjeto(empresaCreada)){
-					login = new Login();
-					this.dispose();
-					login.setVisible(true);
-				}else{
-					System.out.println("Algo ha pasado");
-				}
+				clienteEmpresaCreada = new Empresas(this.NombreUsuario.getText(), this.correoUsuario.getText(), this.passUsuario.getText(), this.calleUsuario.getText(), Integer.parseInt(this.numCalleUsuario.getText()), Integer.parseInt(this.cpUsuario.getText()), this.ciudadUsuario.getText(), Integer.parseInt(this.telUsuario.getText()), this.dniCifBox.getText(),this.webBox.getText());
+			}else{
+				clienteEmpresaCreada = new Clientes(this.NombreUsuario.getText(), this.correoUsuario.getText(), this.passUsuario.getText(), this.calleUsuario.getText(), Integer.parseInt(this.numCalleUsuario.getText()), Integer.parseInt(this.cpUsuario.getText()), this.ciudadUsuario.getText(), Integer.parseInt(this.telUsuario.getText()), this.dniCifBox.getText());
+			}
+			
+			if(guardarObjeto(clienteEmpresaCreada)){
+				login = new Login();
+				this.dispose();
+				login.setVisible(true);
+			}else{
+				System.out.println("Algo ha pasado");
 			}
 		}else{
 			System.out.println("faltan campos por llenar");

@@ -12,21 +12,83 @@ public class Productos {
    private String[] opinionesComentario;
    private String[] opinionesFecha;
    private String categoria;
-   private String[] categorias = {"Componentes","Ordenadores","Móviles y telefonía","TV, audio y fotos", "Consolas y videojuegos"};
-
-    public Productos(String titulo, String caracteristicas, double precio, int stockCantidad, LocalDate entradaTienda) {
+   private String fotografia;
+   
+    public Productos(String titulo, String caracteristicas, double precio, int stockCantidad, LocalDate entradaTienda, String categoria, String fotografia) {
         this.titulo = titulo;
         this.caracteristicas = caracteristicas;
         this.precio = precio;
         this.stockCantidad = stockCantidad;
         this.entradaTienda = entradaTienda;
-        this.categoria = "";
+        this.categoria = categoria;
+	this.fotografia = fotografia;
     }
 
-    public void mostrar(){
-        for (String cate : categorias) {
-            System.out.println(cate);
-        }
-    }
+	public String getTitulo() {
+		return titulo;
+	}
 
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getCaracteristicas() {
+		return caracteristicas;
+	}
+
+	public void setCaracteristicas(String caracteristicas) {
+		this.caracteristicas = caracteristicas;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public int getStockCantidad() {
+		return stockCantidad;
+	}
+
+
+	public LocalDate getEntradaTienda() {
+		return entradaTienda;
+	}
+
+
+	public String[] getOpiniones1_5() {
+		return opiniones1_5;
+	}
+
+	public void setOpiniones1_5(String[] opiniones1_5) {
+		this.opiniones1_5 = opiniones1_5;
+	}
+
+	public String[] getOpinionesComentario() {
+		return opinionesComentario;
+	}
+
+	public void setOpinionesComentario(String[] opinionesComentario) {
+		this.opinionesComentario = opinionesComentario;
+	}
+
+	public String[] getOpinionesFecha() {
+		return opinionesFecha;
+	}
+
+	public void setOpinionesFecha(String[] opinionesFecha) {
+		this.opinionesFecha = opinionesFecha;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+
+	public String getFotografia() {
+		return fotografia;
+	}
+    
 }
