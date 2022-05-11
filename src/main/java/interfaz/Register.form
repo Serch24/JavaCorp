@@ -50,59 +50,60 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="checkEmpresa" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
+                      <Component id="telUsuario" min="-2" pref="127" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="checkEmpresa" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                              <Component id="telUsuario" min="-2" pref="127" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="calleUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="passUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="correoUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="NombreUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="cpUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="numCalleUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ciudadUsuario" min="-2" pref="127" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="calleUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
-                                          <Component id="passUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
-                                          <Component id="correoUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
-                                          <Component id="NombreUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
-                                          <Component id="cpUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
-                                          <Component id="numCalleUsuario" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="panelTest" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                              <Component id="webTodo" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="panelTest" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Component id="webTodo" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ciudadUsuario" min="-2" pref="127" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="confirmarRegistro" min="-2" pref="219" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="dniCifUsuario" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="registrarBoton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="709" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="dniCifUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
+              <Component id="registrarBoton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -125,7 +126,7 @@
                   <Component id="panelTest" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -156,15 +157,19 @@
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="telUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="checkEmpresa" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="registrarBoton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="dniCifUsuario" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="webTodo" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="webTodo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="confirmarRegistro" min="-2" pref="47" max="-2" attributes="0"/>
+                  </Group>
               </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="checkEmpresa" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Component id="registrarBoton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <Component id="dniCifUsuario" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -173,44 +178,44 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre"/>
+        <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="NombreUsuario">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Correo electronico"/>
+        <Property name="text" type="java.lang.String" value="Correo electronico:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
+        <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Calle"/>
+        <Property name="text" type="java.lang.String" value="Calle:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Numero de calle"/>
+        <Property name="text" type="java.lang.String" value="Numero de calle:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;dugo postal"/>
+        <Property name="text" type="java.lang.String" value="C&#xf3;dugo postal:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ciudad"/>
+        <Property name="text" type="java.lang.String" value="Ciudad:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Telefono"/>
+        <Property name="text" type="java.lang.String" value="Telefono:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="correoUsuario">
@@ -221,12 +226,21 @@
     <Component class="javax.swing.JTextField" name="calleUsuario">
     </Component>
     <Component class="javax.swing.JTextField" name="numCalleUsuario">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numCalleUsuarioKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="cpUsuario">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cpUsuarioKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="ciudadUsuario">
     </Component>
     <Component class="javax.swing.JTextField" name="telUsuario">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="telUsuarioKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="passUsuario">
     </Component>
@@ -265,7 +279,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="dniCif">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Dni"/>
+            <Property name="text" type="java.lang.String" value="Dni:"/>
           </Properties>
           <Events>
             <EventHandler event="componentHidden" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="dniCifComponentHidden"/>
@@ -321,7 +335,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Web"/>
+            <Property name="text" type="java.lang.String" value="Web:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="webBox">
@@ -331,5 +345,12 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="confirmarRegistro">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
