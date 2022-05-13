@@ -11,10 +11,10 @@ public class Productos {
    private String[] opiniones1_5;
    private String[] opinionesComentario;
    private String[] opinionesFecha;
-   private String categoria;
+   private CategoriaProductos categoria;
    private String fotografia;
    
-    public Productos(String titulo, String caracteristicas, double precio, int stockCantidad, LocalDate entradaTienda, String categoria, String fotografia) {
+    public Productos(String titulo, String caracteristicas, double precio, int stockCantidad, LocalDate entradaTienda, CategoriaProductos categoria, String fotografia) {
         this.titulo = titulo;
         this.caracteristicas = caracteristicas;
         this.precio = precio;
@@ -82,7 +82,7 @@ public class Productos {
 		this.opinionesFecha = opinionesFecha;
 	}
 
-	public String getCategoria() {
+	public CategoriaProductos getCategoria() {
 		return categoria;
 	}
 
@@ -90,5 +90,11 @@ public class Productos {
 	public String getFotografia() {
 		return fotografia;
 	}
+
+	@Override
+	public String toString() {
+		return "Productos{" + "titulo=" + titulo + ", caracteristicas=" + caracteristicas + ", precio=" + precio + ", stockCantidad=" + stockCantidad + ", entradaTienda=" + entradaTienda + ", opiniones1_5=" + opiniones1_5 + ", opinionesComentario=" + opinionesComentario + ", opinionesFecha=" + opinionesFecha + ", categoria=" + categoria + ", fotografia=" + fotografia + '}';
+	}
     
+	
 }

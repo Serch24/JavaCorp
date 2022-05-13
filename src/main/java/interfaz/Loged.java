@@ -1,11 +1,15 @@
 package interfaz;
 
 import java.awt.Image;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -18,6 +22,7 @@ import poo.javacorp.Usuarios;
 public class Loged extends javax.swing.JFrame {
 	Usuarios usuario;
 	String imagenes = "src/main/java/imagenes/";
+	ArrayList<Productos> todosLosProductos = new ArrayList<>();
 
 	
 	public Loged(Usuarios usuarioLoged) {
@@ -33,6 +38,58 @@ public class Loged extends javax.swing.JFrame {
 		for (CategoriaProductos categoria : CategoriaProductos.values()) {
 			buscarCategorias.addItem(categoria + "");
 		}
+	}
+	public void crearProductos(){ 
+		
+		String path = "src/main/java/ficheros/productoss.dat";
+		
+		Productos primero = new Productos("Asus", "Es un pc muy rapido.", 1000, 4, LocalDate.now(), CategoriaProductos.ORDENADORES, imagenes + "azul.png");
+		Productos segundo = new Productos("xbox", "Nueva consola, super moderna.", 400, 5, LocalDate.now(), CategoriaProductos.CONSOLASYVIDEOJUEGOS, imagenes + "xbox.png");
+		
+		File archivo = new File(path);
+		if(!archivo.exists() && !archivo.isFile()){
+			
+			try {
+				archivo.createNewFile();
+				
+			} catch (IOException ex) {
+				System.out.println(ex);
+			}
+		}else{
+			
+			// se recogen todos los productos y se almacenan en la variable "todosLosProductos"
+			try {
+				FileInputStream tmp = new FileInputStream(path);
+				ObjectInputStream aa = new ObjectInputStream(tmp);
+				todosLosProductos = (ArrayList<Productos>) aa.readObject();
+				tmp.close();
+				aa.close();	
+			} catch (IOException | ClassNotFoundException e) {
+				System.out.println(e);
+			}
+		}
+		
+		try {
+			//Se agregan los diferentes Productos al ArrayList.
+			todosLosProductos.add(primero);
+			todosLosProductos.add(segundo);
+			
+			//se guarda el objeto en un fichero y se cierran los sreams.
+			FileOutputStream tmp = new FileOutputStream(path,false);
+			ObjectOutputStream aa = new ObjectOutputStream(tmp);
+			aa.writeObject(todosLosProductos);
+			tmp.close();
+			tmp.flush();
+			aa.close();
+			
+		} catch (FileNotFoundException ex) {
+			System.out.println(ex);
+		} catch (IOException ex) {
+			System.out.println(ex);
+		}
+		System.out.println(todosLosProductos);
+		
+		
 	}
 	
 	public void listarProductos(){
@@ -131,6 +188,7 @@ public class Loged extends javax.swing.JFrame {
 		panelTest.add(test);
 		// ya funciona añadir dinamicamente un Jlabel!!
 		pack();
+		crearProductos();
 		
         }//GEN-LAST:event_BotonBusquedaActionPerformed
 
