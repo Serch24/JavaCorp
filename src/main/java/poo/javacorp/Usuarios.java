@@ -12,8 +12,12 @@ public abstract class Usuarios implements Serializable{
 //    private int cpDireccion;
 //    private String ciudadDireccion;
 //    private int telefono;
+//    private String titularTrj;
+//    private String numeroTrj;
+//    private String caducidadTrj;
 
-    public Usuarios(String nombre, String correoElectronico, String clave, String calleDireccion, int numeroDireccion, int cpDireccion, String ciudadDireccion, int telefono) {
+    public Usuarios(String nombre, String correoElectronico, String clave, String calleDireccion,
+            int numeroDireccion, int cpDireccion, String ciudadDireccion, int telefono, String titularTrj, String numeroTrj, String caducidadTrj) {
 //        this.nombre = nombre;
 //        this.correoElectronico = correoElectronico;
 //        this.clave = clave;
@@ -22,6 +26,9 @@ public abstract class Usuarios implements Serializable{
 //        this.cpDireccion = cpDireccion;
 //        this.ciudadDireccion = ciudadDireccion;
 //        this.telefono = telefono;
+//        this.titularTrj = titularTrj;
+//        this.numeroTrj = numeroTrj;
+//        this.caducidadTrj = caducidadTrj;
     }
 
 
@@ -56,6 +63,18 @@ public abstract class Usuarios implements Serializable{
 	public abstract int getTelefono();
 
 	public abstract void setTelefono(int telefono);
+        
+        public abstract String getTitularTrj();
+        
+        public abstract void setTitularTrj(String titularTrj);
+        
+        public abstract String getNumeroTrj();
+        
+        public abstract void setNumeroTrj(String numeroTrj);
+        
+        public abstract String getCaducidadTrj();
+        
+        public abstract void setCaducidadTrj(String caducidadTrj);
 	
 	@Override
 	public abstract String toString();

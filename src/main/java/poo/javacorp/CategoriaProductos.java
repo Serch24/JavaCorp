@@ -4,10 +4,6 @@
  */
 package poo.javacorp;
 
-/**
- *
- * @author s3rzh
- */
 public enum CategoriaProductos {
 	COMPONENTES, ORDENADORES, MOVILESYTELEFONIA, TVAUDIOYFOTOS,CONSOLASYVIDEOJUEGOS
 }

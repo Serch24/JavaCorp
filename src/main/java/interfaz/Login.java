@@ -2,10 +2,13 @@ package interfaz;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import poo.javacorp.Usuarios;
+import poo.javacorp.Administrador;
 
 public class Login extends javax.swing.JFrame {
 	
@@ -33,7 +36,19 @@ public class Login extends javax.swing.JFrame {
 		} catch (IOException | ClassNotFoundException ex) {
 			existeUsuario = false;
 		}
-		
+		try{
+                    FileOutputStream fs = new FileOutputStream(path, true);
+                    ObjectOutputStream ois = new ObjectOutputStream(fs);
+                    Administrador admin = new Administrador("Administrador", "admin@javacomp.com", "admin", "calle plátano", 34, 23060, "Madrid", 637052027, "Admin", "4567387739871098", "11/23", "51460771S");
+                    ois.writeObject(admin);
+                    fs.close();
+                    fs.flush();
+                    ois.close();
+                } catch (FileNotFoundException ex){
+                    System.out.println(ex);
+                } catch (IOException ex){
+                    System.out.println(ex);
+                }
 		if(!existeUsuario){
 			try{
 				usuario = this.todosLosUsuarios.entrySet().stream().filter( llave -> usuarioo.equals(llave.getValue().getCorreoElectronico())).findFirst().get().getValue();

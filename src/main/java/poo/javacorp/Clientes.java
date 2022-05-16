@@ -11,10 +11,13 @@ public class Clientes extends Usuarios {
 	private int cpDireccion;
 	private String ciudadDireccion;
 	private int telefono;
+        private String titularTrj;
+        private String numeroTrj;
+        private String caducidadTrj;
 
 	public Clientes(String nombre, String correoElectronico, String clave, String calleDireccion, int numeroDireccion,
-		int cpDireccion, String ciudadDireccion, int telefono, String dni) {
-		super(nombre, correoElectronico, clave, calleDireccion, numeroDireccion, cpDireccion, ciudadDireccion, telefono);
+		int cpDireccion, String ciudadDireccion, int telefono, String titularTrj, String numeroTrj, String caducidadTrj, String dni) {
+		super(nombre, correoElectronico, clave, calleDireccion, numeroDireccion, cpDireccion, ciudadDireccion, telefono, titularTrj, numeroTrj, caducidadTrj);
 		this.dni = dni;
 		this.nombre = nombre;
 		this.correoElectronico = correoElectronico;
@@ -24,6 +27,9 @@ public class Clientes extends Usuarios {
 		this.cpDireccion = cpDireccion;
 		this.ciudadDireccion = ciudadDireccion;
 		this.telefono = telefono;
+                this.titularTrj = titularTrj;
+                this.numeroTrj = numeroTrj;
+                this.caducidadTrj = caducidadTrj;
 	}
 	
 
@@ -114,10 +120,42 @@ public class Clientes extends Usuarios {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-
+        
+        @Override
+        public String getTitularTrj(){
+            return titularTrj;
+        }
+        
+        @Override
+        public void setTitularTrj(String titularTrj){
+            this.titularTrj = titularTrj;
+        } 
+        
+        @Override
+        public String getNumeroTrj(){
+            return numeroTrj;
+        }
+        
+        @Override
+        public void setNumeroTrj(String numeroTrj){
+            this.numeroTrj = numeroTrj;
+        }
+        
+        @Override
+        public String getCaducidadTrj(){
+            return caducidadTrj;
+        }
+        
+        @Override
+        public void setCaducidadTrj(String caduicidadTrj){
+            this.caducidadTrj = caducidadTrj;
+        }
 	@Override
 	public String toString() {
-		return "Clientes{" + "dni=" + dni + ", nombre=" + nombre + ", correoElectronico=" + correoElectronico + ", clave=" + clave + ", calleDireccion=" + calleDireccion + ", numeroDireccion=" + numeroDireccion + ", cpDireccion=" + cpDireccion + ", ciudadDireccion=" + ciudadDireccion + ", telefono=" + telefono + '}';
+		return "Clientes{" + "dni=" + dni + ", nombre=" + nombre + ", correoElectronico=" 
+                        + correoElectronico + ", clave=" + clave + ", calleDireccion=" + calleDireccion + ", numeroDireccion=" 
+                        + numeroDireccion + ", cpDireccion=" + cpDireccion + ", ciudadDireccion=" + ciudadDireccion + ", telefono=" 
+                        + telefono + "titularTrj=" + titularTrj + ", numeroTrj=" + numeroTrj + ",caducidadTrj=" + caducidadTrj +'}';
 	}
 	
 }
