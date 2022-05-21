@@ -64,7 +64,6 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dniCifUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="correoUs" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -96,25 +95,37 @@
                                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="caducidadTrjUs" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                              <Component id="caducidadTrjUsuario" min="-2" pref="121" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                      <EmptySpace pref="249" max="32767" attributes="0"/>
+                                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace pref="342" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="titularTrjUs" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="titularTrjUsuario" min="-2" pref="153" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                                                      <Component id="numTrjUs" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="numeroTrjUsuario" min="-2" pref="153" max="-2" attributes="0"/>
-                                                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="titularTrjUs" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="titularTrjUsuario" min="-2" pref="153" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="caducidadTrjUs" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                                              <Component id="mesTrjUs" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Component id="mesTrjUsuario" min="-2" pref="60" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="numTrjUs" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="numeroTrjUsuario" min="-2" pref="153" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="añoTrjUs" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Component id="añoTrjUsuario" min="-2" pref="58" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -130,8 +141,9 @@
                                   </Group>
                               </Group>
                           </Group>
+                          <Component id="dniCifUsuario" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -172,6 +184,10 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="numCalleUs" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="numCalleUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="mesTrjUs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="mesTrjUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="añoTrjUs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="añoTrjUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -191,11 +207,8 @@
                           <Component id="numeroTrjUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="caducidadTrjUs" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="caducidadTrjUsuario" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="caducidadTrjUs" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -295,7 +308,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="caducidadTrjUs">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Caducidad:"/>
+        <Property name="text" type="java.lang.String" value="Caducidad"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="mesTrjUs">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mes:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="a&#xf1;oTrjUs">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="correoUsuario">
@@ -330,15 +353,16 @@
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numeroTrjUsuarioKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="caducidadTrjUsuario">
-      <Properties>
-        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-          <Format format="MM/YY" subtype="-1" type="1"/>
-        </Property>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="mesTrjUsuario">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="caducidadTrjUsuarioActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="caducidadTrjUsuarioKeyTyped"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mesTrjUsuarioActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="mesTrjUsuarioKeyTyped"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="a&#xf1;oTrjUsuario">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a&#xf1;oTrjUsuarioActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="a&#xf1;oTrjUsuarioKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="passUsuario">

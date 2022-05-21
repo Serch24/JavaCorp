@@ -13,11 +13,12 @@ public class Clientes extends Usuarios {
 	private int telefono;
         private String titularTrj;
         private String numeroTrj;
-        private String caducidadTrj;
+        private int mesTrj;
+        private int añoTrj;
 
 	public Clientes(String nombre, String correoElectronico, String clave, String calleDireccion, int numeroDireccion,
-		int cpDireccion, String ciudadDireccion, int telefono, String titularTrj, String numeroTrj, String caducidadTrj, String dni) {
-		super(nombre, correoElectronico, clave, calleDireccion, numeroDireccion, cpDireccion, ciudadDireccion, telefono, titularTrj, numeroTrj, caducidadTrj);
+		int cpDireccion, String ciudadDireccion, int telefono, String titularTrj, String numeroTrj, int mesTrj, int añoTrj, String dni) {
+		super(nombre, correoElectronico, clave, calleDireccion, numeroDireccion, cpDireccion, ciudadDireccion, telefono, titularTrj, numeroTrj, mesTrj, añoTrj);
 		this.dni = dni;
 		this.nombre = nombre;
 		this.correoElectronico = correoElectronico;
@@ -29,7 +30,8 @@ public class Clientes extends Usuarios {
 		this.telefono = telefono;
                 this.titularTrj = titularTrj;
                 this.numeroTrj = numeroTrj;
-                this.caducidadTrj = caducidadTrj;
+                this.mesTrj = mesTrj;
+                this.añoTrj = añoTrj;
 	}
 	
 
@@ -142,20 +144,30 @@ public class Clientes extends Usuarios {
         }
         
         @Override
-        public String getCaducidadTrj(){
-            return caducidadTrj;
+        public int getMesTrj(){
+            return mesTrj;
         }
         
         @Override
-        public void setCaducidadTrj(String caduicidadTrj){
-            this.caducidadTrj = caducidadTrj;
+        public void setMesTrj(int mesTrj){
+            this.mesTrj = mesTrj;
+        }
+        
+        @Override
+        public int getAñoTrj(){
+            return añoTrj;
+        }
+        
+        @Override
+        public void setAñoTrj(int añoTrj){
+            this.añoTrj = añoTrj;
         }
 	@Override
 	public String toString() {
 		return "Clientes{" + "dni=" + dni + ", nombre=" + nombre + ", correoElectronico=" 
                         + correoElectronico + ", clave=" + clave + ", calleDireccion=" + calleDireccion + ", numeroDireccion=" 
                         + numeroDireccion + ", cpDireccion=" + cpDireccion + ", ciudadDireccion=" + ciudadDireccion + ", telefono=" 
-                        + telefono + "titularTrj=" + titularTrj + ", numeroTrj=" + numeroTrj + ",caducidadTrj=" + caducidadTrj +'}';
+                        + telefono + "titularTrj=" + titularTrj + ", numeroTrj=" + numeroTrj + ",caducidadTrj=" + mesTrj + "/" + añoTrj+ '}';
 	}
 	
 }

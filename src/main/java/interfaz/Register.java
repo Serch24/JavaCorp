@@ -46,6 +46,8 @@ public class Register extends javax.swing.JFrame {
         titularTrjUs = new javax.swing.JLabel();
         numTrjUs = new javax.swing.JLabel();
         caducidadTrjUs = new javax.swing.JLabel();
+        mesTrjUs = new javax.swing.JLabel();
+        añoTrjUs = new javax.swing.JLabel();
         correoUsuario = new javax.swing.JTextField();
         calleUsuario = new javax.swing.JTextField();
         numCalleUsuario = new javax.swing.JTextField();
@@ -54,7 +56,8 @@ public class Register extends javax.swing.JFrame {
         telUsuario = new javax.swing.JTextField();
         titularTrjUsuario = new javax.swing.JTextField();
         numeroTrjUsuario = new javax.swing.JTextField();
-        caducidadTrjUsuario = new javax.swing.JFormattedTextField();
+        mesTrjUsuario = new javax.swing.JTextField();
+        añoTrjUsuario = new javax.swing.JTextField();
         passUsuario = new javax.swing.JPasswordField();
         dniCifUsuario = new javax.swing.JLabel();
         panelTest = new javax.swing.JPanel();
@@ -98,7 +101,11 @@ public class Register extends javax.swing.JFrame {
 
         numTrjUs.setText("Número:");
 
-        caducidadTrjUs.setText("Caducidad:");
+        caducidadTrjUs.setText("Caducidad");
+
+        mesTrjUs.setText("Mes:");
+
+        añoTrjUs.setText("Año:");
 
         correoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,15 +142,25 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        caducidadTrjUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("MM/YY"))));
-        caducidadTrjUsuario.addActionListener(new java.awt.event.ActionListener() {
+        mesTrjUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caducidadTrjUsuarioActionPerformed(evt);
+                mesTrjUsuarioActionPerformed(evt);
             }
         });
-        caducidadTrjUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+        mesTrjUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                caducidadTrjUsuarioKeyTyped(evt);
+                mesTrjUsuarioKeyTyped(evt);
+            }
+        });
+
+        añoTrjUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                añoTrjUsuarioActionPerformed(evt);
+            }
+        });
+        añoTrjUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                añoTrjUsuarioKeyTyped(evt);
             }
         });
 
@@ -244,7 +261,6 @@ public class Register extends javax.swing.JFrame {
                         .addGap(81, 81, 81))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dniCifUsuario)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(correoUs)
@@ -273,29 +289,38 @@ public class Register extends javax.swing.JFrame {
                                                 .addGap(28, 28, 28)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel10)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE))
+                                                    .addGroup(layout.createSequentialGroup()
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jLabel10)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(titularTrjUs)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(titularTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(caducidadTrjUs)
+                                                                .addGap(19, 19, 19)
+                                                                .addComponent(mesTrjUs)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(caducidadTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(titularTrjUs)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(titularTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(numTrjUs)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(numeroTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE))))))
+                                                                .addComponent(mesTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(numTrjUs)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(numeroTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(añoTrjUs)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(añoTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(telUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(ciudadUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(53, 53, 53)
-                                        .addComponent(webTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(webTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(dniCifUsuario))
+                        .addGap(0, 5, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,7 +350,11 @@ public class Register extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(numCalleUs)
-                            .addComponent(numCalleUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(numCalleUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mesTrjUs)
+                            .addComponent(mesTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(añoTrjUs)
+                            .addComponent(añoTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cpUs)
@@ -341,10 +370,8 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(titularTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(numeroTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(caducidadTrjUs)
-                            .addComponent(caducidadTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(62, 62, 62)))
+                        .addComponent(caducidadTrjUs)
+                        .addGap(66, 66, 66)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(webTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -382,8 +409,9 @@ public class Register extends javax.swing.JFrame {
                         && !this.passUsuario.getText().equals("") && !this.calleUsuario.getText().equals("") 
                         && !this.numCalleUsuario.getText().equals("") && !this.cpUsuario.getText().equals("") 
                         && !this.ciudadUsuario.getText().equals("") && !this.telUsuario.getText().equals("") 
-                        && !this.titularTrjUsuario.getText().equals("") &&!this.numeroTrjUsuario.getText().equals("")
-                        &&!this.caducidadTrjUsuario.getText().equals("") && !this.dniCifBox.getText().equals("")) {
+                        && !this.titularTrjUsuario.getText().equals("") && !this.numeroTrjUsuario.getText().equals("")
+                        && !this.mesTrjUsuario.getText().equals("") && !this.añoTrjUsuario.getText().equals("") 
+                        && !this.dniCifBox.getText().equals("")) {
 			if(this.checkEmpresa.isSelected()){
 				if(!this.webBox.getText().equals("")){
 					flag = true;
@@ -446,10 +474,10 @@ public class Register extends javax.swing.JFrame {
 		if (todosLosCamposLlenos()) {
 			if(this.checkEmpresa.isSelected()){
 				clienteEmpresaCreada = new Empresas(this.NombreUsuario.getText(), this.correoUsuario.getText(), this.passUsuario.getText(), this.calleUsuario.getText(), Integer.parseInt(this.numCalleUsuario.getText()),
-                                        Integer.parseInt(this.cpUsuario.getText()), this.ciudadUsuario.getText(), Integer.parseInt(this.telUsuario.getText()), this.titularTrjUsuario.getText(), this.numeroTrjUsuario.getText(), this.caducidadTrjUsuario.getText(), this.dniCifBox.getText(), this.webBox.getText());
+                                        Integer.parseInt(this.cpUsuario.getText()), this.ciudadUsuario.getText(), Integer.parseInt(this.telUsuario.getText()), this.titularTrjUsuario.getText(), this.numeroTrjUsuario.getText(), Integer.parseInt(this.mesTrjUsuario.getText()), Integer.parseInt(this.añoTrjUsuario.getText()), this.dniCifBox.getText(), this.webBox.getText());
 			}else{
 				clienteEmpresaCreada = new Clientes(this.NombreUsuario.getText(), this.correoUsuario.getText(), this.passUsuario.getText(), this.calleUsuario.getText(), Integer.parseInt(this.numCalleUsuario.getText()),
-                                        Integer.parseInt(this.cpUsuario.getText()), this.ciudadUsuario.getText(), Integer.parseInt(this.telUsuario.getText()), this.titularTrjUsuario.getText(), this.numeroTrjUsuario.getText(), this.caducidadTrjUsuario.getText(), this.dniCifBox.getText());
+                                        Integer.parseInt(this.cpUsuario.getText()), this.ciudadUsuario.getText(), Integer.parseInt(this.telUsuario.getText()), this.titularTrjUsuario.getText(), this.numeroTrjUsuario.getText(), Integer.parseInt(this.mesTrjUsuario.getText()), Integer.parseInt(this.añoTrjUsuario.getText()), this.dniCifBox.getText());
 			}
 			
 			if(guardarObjeto(clienteEmpresaCreada)){
@@ -523,23 +551,31 @@ public class Register extends javax.swing.JFrame {
 
     }//GEN-LAST:event_numeroTrjUsuarioKeyTyped
 
-    private void caducidadTrjUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caducidadTrjUsuarioActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_caducidadTrjUsuarioActionPerformed
-
     private void NombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreUsuarioActionPerformed
 
-    private void caducidadTrjUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caducidadTrjUsuarioKeyTyped
+    private void añoTrjUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añoTrjUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_caducidadTrjUsuarioKeyTyped
+    }//GEN-LAST:event_añoTrjUsuarioActionPerformed
 
+    private void mesTrjUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesTrjUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mesTrjUsuarioActionPerformed
+
+    private void mesTrjUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesTrjUsuarioKeyTyped
+        // TODO add your handling code here:
+            char c = evt.getKeyChar();
+            if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_mesTrjUsuarioKeyTyped
+
+    private void añoTrjUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_añoTrjUsuarioKeyTyped
+        // TODO add your handling code here:
+            char c = evt.getKeyChar();
+            if(c<'0' || c>'9') evt.consume();
+    }//GEN-LAST:event_añoTrjUsuarioKeyTyped
 	
-	/**
-	 * @param args the command line arguments
-	 */
+	
 	public static void main(String args[]) {
 		/* Set the Nimbus look and feel */
 		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -574,10 +610,11 @@ public class Register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NombreUsuario;
+    private javax.swing.JLabel añoTrjUs;
+    private javax.swing.JTextField añoTrjUsuario;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel caducidadTrjUs;
-    private javax.swing.JFormattedTextField caducidadTrjUsuario;
     private javax.swing.JLabel calleUs;
     private javax.swing.JTextField calleUsuario;
     private javax.swing.JCheckBox checkEmpresa;
@@ -595,6 +632,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
+    private javax.swing.JLabel mesTrjUs;
+    private javax.swing.JTextField mesTrjUsuario;
     private javax.swing.JLabel nombreUs;
     private javax.swing.JLabel numCalleUs;
     private javax.swing.JTextField numCalleUsuario;
