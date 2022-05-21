@@ -33,19 +33,19 @@ public class Register extends javax.swing.JFrame {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jPopupMenu2 = new javax.swing.JPopupMenu();
         jPopupMenu3 = new javax.swing.JPopupMenu();
-        jLabel1 = new javax.swing.JLabel();
+        nombreUs = new javax.swing.JLabel();
         NombreUsuario = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        correoUs = new javax.swing.JLabel();
+        passwordUs = new javax.swing.JLabel();
+        calleUs = new javax.swing.JLabel();
+        numCalleUs = new javax.swing.JLabel();
+        cpUs = new javax.swing.JLabel();
+        ciudadUs = new javax.swing.JLabel();
+        tlfUsu = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        titularTrjUs = new javax.swing.JLabel();
+        numTrjUs = new javax.swing.JLabel();
+        caducidadTrjUs = new javax.swing.JLabel();
         correoUsuario = new javax.swing.JTextField();
         calleUsuario = new javax.swing.JTextField();
         numCalleUsuario = new javax.swing.JTextField();
@@ -64,12 +64,12 @@ public class Register extends javax.swing.JFrame {
         registrarBoton = new javax.swing.JButton();
         confirmarRegistro = new javax.swing.JLabel();
         webTodo = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        webUs = new javax.swing.JLabel();
         webBox = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nombre:");
+        nombreUs.setText("Nombre:");
 
         NombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,28 +77,28 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Correo electronico:");
+        correoUs.setText("Correo electronico:");
 
-        jLabel3.setText("Contraseña:");
+        passwordUs.setText("Contraseña:");
 
-        jLabel4.setText("Calle:");
+        calleUs.setText("Calle:");
 
-        jLabel5.setText("Numero de calle:");
+        numCalleUs.setText("Numero de calle:");
 
-        jLabel6.setText("Códugo postal:");
+        cpUs.setText("Códugo postal:");
 
-        jLabel7.setText("Ciudad:");
+        ciudadUs.setText("Ciudad:");
 
-        jLabel8.setText("Telefono:");
+        tlfUsu.setText("Telefono:");
 
         jLabel10.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel10.setText("Tarjeta Crédito");
 
-        jLabel11.setText("Titular:");
+        titularTrjUs.setText("Titular:");
 
-        jLabel12.setText("Número:");
+        numTrjUs.setText("Número:");
 
-        jLabel13.setText("Caducidad:");
+        caducidadTrjUs.setText("Caducidad:");
 
         correoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,7 +197,7 @@ public class Register extends javax.swing.JFrame {
 
         confirmarRegistro.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel9.setText("Web:");
+        webUs.setText("Web:");
 
         webBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +211,7 @@ public class Register extends javax.swing.JFrame {
             webTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(webTodoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9)
+                .addComponent(webUs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(webBox, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -221,7 +221,7 @@ public class Register extends javax.swing.JFrame {
             .addGroup(webTodoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(webTodoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
+                    .addComponent(webUs)
                     .addComponent(webBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -247,14 +247,14 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(dniCifUsuario)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel8))
+                                    .addComponent(correoUs)
+                                    .addComponent(passwordUs)
+                                    .addComponent(calleUs)
+                                    .addComponent(numCalleUs)
+                                    .addComponent(cpUs)
+                                    .addComponent(ciudadUs)
+                                    .addComponent(nombreUs)
+                                    .addComponent(tlfUsu))
                                 .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -276,16 +276,16 @@ public class Register extends javax.swing.JFrame {
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addComponent(jLabel10)
                                                             .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(jLabel13)
+                                                                .addComponent(caducidadTrjUs)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addComponent(caducidadTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE))
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel11)
+                                                        .addComponent(titularTrjUs)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(titularTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel12)
+                                                        .addComponent(numTrjUs)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(numeroTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE))))))
@@ -307,28 +307,28 @@ public class Register extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(panelTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(8, 8, 8)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(nombreUs, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(correoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addComponent(correoUs))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(passUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(passwordUs))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
+                            .addComponent(calleUs)
                             .addComponent(calleUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
+                            .addComponent(numCalleUs)
                             .addComponent(numCalleUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
+                            .addComponent(cpUs)
                             .addComponent(cpUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(layout.createSequentialGroup()
@@ -336,26 +336,26 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
+                            .addComponent(titularTrjUs)
+                            .addComponent(numTrjUs)
                             .addComponent(titularTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(numeroTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(caducidadTrjUs)
                             .addComponent(caducidadTrjUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(62, 62, 62)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(webTodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
+                        .addComponent(ciudadUs)
                         .addComponent(ciudadUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(telUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(telUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tlfUsu))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(checkEmpresa)
                         .addGap(13, 13, 13)
@@ -576,40 +576,40 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField NombreUsuario;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JLabel caducidadTrjUs;
     private javax.swing.JFormattedTextField caducidadTrjUsuario;
+    private javax.swing.JLabel calleUs;
     private javax.swing.JTextField calleUsuario;
     private javax.swing.JCheckBox checkEmpresa;
+    private javax.swing.JLabel ciudadUs;
     private javax.swing.JTextField ciudadUsuario;
     private javax.swing.JLabel confirmarRegistro;
+    private javax.swing.JLabel correoUs;
     private javax.swing.JTextField correoUsuario;
+    private javax.swing.JLabel cpUs;
     private javax.swing.JTextField cpUsuario;
     private javax.swing.JLabel dniCif;
     private javax.swing.JTextField dniCifBox;
     private javax.swing.JLabel dniCifUsuario;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
+    private javax.swing.JLabel nombreUs;
+    private javax.swing.JLabel numCalleUs;
     private javax.swing.JTextField numCalleUsuario;
+    private javax.swing.JLabel numTrjUs;
     private javax.swing.JTextField numeroTrjUsuario;
     private javax.swing.JPanel panelTest;
     private javax.swing.JPasswordField passUsuario;
+    private javax.swing.JLabel passwordUs;
     private javax.swing.JButton registrarBoton;
     private javax.swing.JTextField telUsuario;
+    private javax.swing.JLabel titularTrjUs;
     private javax.swing.JTextField titularTrjUsuario;
+    private javax.swing.JLabel tlfUsu;
     private javax.swing.JTextField webBox;
     private javax.swing.JPanel webTodo;
+    private javax.swing.JLabel webUs;
     // End of variables declaration//GEN-END:variables
 }

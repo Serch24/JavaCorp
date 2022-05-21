@@ -1,8 +1,9 @@
 package poo.javacorp;
 
 import java.time.LocalDate;
+import java.io.Serializable;
 
-public class Productos {
+public class Productos implements Serializable {
    private String titulo;
    private String caracteristicas;
    private double precio;
@@ -14,7 +15,8 @@ public class Productos {
    private CategoriaProductos categoria;
    private String fotografia;
    
-    public Productos(String titulo, String caracteristicas, double precio, int stockCantidad, LocalDate entradaTienda, CategoriaProductos categoria, String fotografia) {
+    public Productos(String titulo, String caracteristicas, double precio, int stockCantidad, LocalDate entradaTienda, 
+            CategoriaProductos categoria, String fotografia) {
         this.titulo = titulo;
         this.caracteristicas = caracteristicas;
         this.precio = precio;

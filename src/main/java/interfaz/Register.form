@@ -67,14 +67,14 @@
                           <Component id="dniCifUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="correoUs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="passwordUs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="calleUs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="numCalleUs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cpUs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ciudadUs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nombreUs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tlfUsu" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -99,7 +99,7 @@
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                                           <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="caducidadTrjUs" min="-2" max="-2" attributes="0"/>
                                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                               <Component id="caducidadTrjUsuario" min="-2" pref="121" max="-2" attributes="0"/>
                                                           </Group>
@@ -107,11 +107,11 @@
                                                       <EmptySpace pref="249" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="titularTrjUs" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Component id="titularTrjUsuario" min="-2" pref="153" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="numTrjUs" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Component id="numeroTrjUsuario" min="-2" pref="153" max="-2" attributes="0"/>
                                                       <EmptySpace pref="29" max="32767" attributes="0"/>
@@ -149,33 +149,33 @@
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombreUs" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="10" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="correoUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="correoUs" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="passUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="passwordUs" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="calleUs" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="calleUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numCalleUs" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="numCalleUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cpUs" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cpUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
@@ -185,15 +185,15 @@
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="titularTrjUs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="numTrjUs" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="titularTrjUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="numeroTrjUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="caducidadTrjUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="caducidadTrjUs" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="caducidadTrjUsuario" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   </Group>
@@ -201,16 +201,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="webTodo" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ciudadUs" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ciudadUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="telUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="tlfUsu" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="checkEmpresa" min="-2" max="-2" attributes="0"/>
@@ -230,7 +230,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="nombreUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre:"/>
       </Properties>
@@ -240,37 +240,37 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NombreUsuarioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="correoUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Correo electronico:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="passwordUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="calleUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Calle:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="numCalleUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Numero de calle:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="cpUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#xf3;dugo postal:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="ciudadUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ciudad:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="tlfUsu">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefono:"/>
       </Properties>
@@ -283,17 +283,17 @@
         <Property name="text" type="java.lang.String" value="Tarjeta Cr&#xe9;dito"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="titularTrjUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Titular:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="numTrjUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
+    <Component class="javax.swing.JLabel" name="caducidadTrjUs">
       <Properties>
         <Property name="text" type="java.lang.String" value="Caducidad:"/>
       </Properties>
@@ -418,7 +418,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                  <Component id="webUs" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="webBox" min="-2" pref="125" max="-2" attributes="0"/>
                   <EmptySpace pref="23" max="32767" attributes="0"/>
@@ -430,7 +430,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="webUs" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="webBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -439,7 +439,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel9">
+        <Component class="javax.swing.JLabel" name="webUs">
           <Properties>
             <Property name="text" type="java.lang.String" value="Web:"/>
           </Properties>
