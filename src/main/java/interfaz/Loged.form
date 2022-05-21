@@ -36,7 +36,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="panelTest" min="-2" pref="644" max="-2" attributes="0"/>
+              <Component id="panelDeImagenes" min="-2" pref="644" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -52,7 +52,7 @@
                   <Component id="BotonBusqueda" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="panelTest" min="-2" pref="316" max="-2" attributes="0"/>
+              <Component id="panelDeImagenes" min="-2" pref="316" max="-2" attributes="0"/>
               <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -92,10 +92,10 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonBusquedaActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="panelTest">
+    <Container class="javax.swing.JPanel" name="panelDeImagenes">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
 
