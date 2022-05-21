@@ -39,7 +39,7 @@ public class Login extends javax.swing.JFrame {
 		try{
                     FileOutputStream fs = new FileOutputStream(path, true);
                     ObjectOutputStream ois = new ObjectOutputStream(fs);
-                    Administrador admin = new Administrador("Administrador", "admin@javacomp.com", "admin", "calle plátano", 34, 23060, "Madrid", 637052027, "Admin", "4567387739871098", "11/23", "51460771S");
+                    Administrador admin = new Administrador("Administrador", "admin@javacomp.com", "admin", "calle plátano", 34, 23060, "Madrid", 637052027, "Admin", "4567387739871098", 11, 23, "51460771S");
                     ois.writeObject(admin);
                     fs.close();
                     fs.flush();

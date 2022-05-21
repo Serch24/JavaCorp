@@ -13,12 +13,13 @@ public class Empresas extends Usuarios {
 	private int telefono;
         private String titularTrj;
         private String numeroTrj;
-        private String caducidadTrj;
+        private int mesTrj;
+        private int añoTrj;
 
 
 	public Empresas(String nombre, String correoElectronico, String clave, String calleDireccion, int numeroDireccion,
-		int cpDireccion, String ciudadDireccion, int telefono, String titularTrj, String numeroTrj, String caducidadTrj, String cfi, String web) {
-		super(nombre, correoElectronico, clave, calleDireccion, numeroDireccion, cpDireccion, ciudadDireccion, telefono, titularTrj, numeroTrj, caducidadTrj);
+		int cpDireccion, String ciudadDireccion, int telefono, String titularTrj, String numeroTrj, int mesTrj, int añoTrj, String cfi, String web) {
+		super(nombre, correoElectronico, clave, calleDireccion, numeroDireccion, cpDireccion, ciudadDireccion, telefono, titularTrj, numeroTrj, mesTrj, añoTrj);
 		this.cfi = cfi;
 		this.web = web;
 		this.nombre = nombre;
@@ -31,7 +32,8 @@ public class Empresas extends Usuarios {
 		this.telefono = telefono;
                 this.titularTrj = titularTrj;
                 this.numeroTrj = numeroTrj;
-                this.caducidadTrj = caducidadTrj;
+                this.mesTrj = mesTrj;
+                this.añoTrj = añoTrj;
 	}
 
 	public String getCfi() {
@@ -151,13 +153,23 @@ public class Empresas extends Usuarios {
         }
         
         @Override
-        public String getCaducidadTrj(){
-            return caducidadTrj;
+        public int getMesTrj(){
+            return mesTrj;
         }
         
         @Override
-        public void setCaducidadTrj(String caducidadTrj){
-            this.caducidadTrj = caducidadTrj;
+        public void setMesTrj(int mesTrj){
+            this.mesTrj = mesTrj;
+        }
+        
+        @Override
+        public int getAñoTrj(){
+            return añoTrj;
+        }
+        
+        @Override
+        public void setAñoTrj(int añoTrj){
+            this.añoTrj = añoTrj;
         }
 
 	@Override
@@ -165,7 +177,7 @@ public class Empresas extends Usuarios {
 		return "Empresas{" + "cfi=" + cfi + ", web=" + web + ", nombre=" + nombre + ", correoElectronico=" 
                         + correoElectronico + ", clave=" + clave + ", calleDireccion=" + calleDireccion + ", numeroDireccion=" 
                         + numeroDireccion + ", cpDireccion=" + cpDireccion + ", ciudadDireccion=" + ciudadDireccion + ", telefono=" 
-                        + telefono + ", titularTrj=" + titularTrj + ", numeroTrj=" + numeroTrj + ", caducidadTrj=" + caducidadTrj +'}';
+                        + telefono + ", titularTrj=" + titularTrj + ", numeroTrj=" + numeroTrj + ", caducidadTrj=" + mesTrj + "/" + añoTrj +'}';
 	}
 
 	

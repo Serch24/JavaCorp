@@ -14,10 +14,11 @@ public abstract class Usuarios implements Serializable{
 //    private int telefono;
 //    private String titularTrj;
 //    private String numeroTrj;
-//    private String caducidadTrj;
+//    private int mesTrj;
+//    private int añoTrj:
 
     public Usuarios(String nombre, String correoElectronico, String clave, String calleDireccion,
-            int numeroDireccion, int cpDireccion, String ciudadDireccion, int telefono, String titularTrj, String numeroTrj, String caducidadTrj) {
+            int numeroDireccion, int cpDireccion, String ciudadDireccion, int telefono, String titularTrj, String numeroTrj, int mesTrj, int añoTrj) {
 //        this.nombre = nombre;
 //        this.correoElectronico = correoElectronico;
 //        this.clave = clave;
@@ -28,7 +29,8 @@ public abstract class Usuarios implements Serializable{
 //        this.telefono = telefono;
 //        this.titularTrj = titularTrj;
 //        this.numeroTrj = numeroTrj;
-//        this.caducidadTrj = caducidadTrj;
+//        this.mesTrj = mesTrj;
+//        this.añoTrj = añoTrj;
     }
 
 
@@ -72,10 +74,14 @@ public abstract class Usuarios implements Serializable{
         
         public abstract void setNumeroTrj(String numeroTrj);
         
-        public abstract String getCaducidadTrj();
+        public abstract int getMesTrj();
         
-        public abstract void setCaducidadTrj(String caducidadTrj);
-	
+        public abstract void setMesTrj(int mesTrj);
+        
+        public abstract int getAñoTrj();
+        
+        public abstract void setAñoTrj(int añoTrj);  
+        	
 	@Override
 	public abstract String toString();
 
