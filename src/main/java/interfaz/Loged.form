@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="filtros">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -25,19 +29,34 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="bienv" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-              <Component id="buscarCategorias" min="-2" pref="174" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
-              <Component id="barraBusqueda" min="-2" pref="231" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="BotonBusqueda" min="-2" pref="78" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="panelDeImagenes" min="-2" pref="644" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Component id="panelDeImagenes" min="-2" pref="693" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="filtroRelevancia" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="filtroMayorP" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="filtroMenorP" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="bienv" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="buscarCategorias" min="-2" pref="174" max="-2" attributes="0"/>
+                      <EmptySpace pref="132" max="32767" attributes="0"/>
+                      <Component id="barraBusqueda" min="-2" pref="231" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="BotonBusqueda" min="-2" pref="78" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,9 +70,15 @@
                   <Component id="barraBusqueda" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="BotonBusqueda" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Component id="panelDeImagenes" min="-2" pref="316" max="-2" attributes="0"/>
-              <EmptySpace pref="41" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="filtroRelevancia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="filtroMayorP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="filtroMenorP" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <Component id="panelDeImagenes" pref="343" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,13 +118,23 @@
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="panelDeImagenes">
-      <Properties>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
-        </Property>
-      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
+    <Component class="javax.swing.JRadioButton" name="filtroRelevancia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Por relevancia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="filtroMayorP">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mayor precio"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="filtroMenorP">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Menor precio"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

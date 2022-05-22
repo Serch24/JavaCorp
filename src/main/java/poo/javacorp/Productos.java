@@ -2,29 +2,33 @@ package poo.javacorp;
 
 import java.time.LocalDate;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Productos implements Serializable {
-   private String titulo;
-   private String caracteristicas;
-   private double precio;
-   private int stockCantidad;
-   private LocalDate entradaTienda;
-   private String[] opiniones1_5;
-   private String[] opinionesComentario;
-   private String[] opinionesFecha;
-   private CategoriaProductos categoria;
-   private String fotografia;
+	private static final long serialVersionUID=1L;  
+	private String titulo;
+	private String caracteristicas;
+	private double precio;
+	private int stockCantidad;
+	private LocalDate entradaTienda;
+	private ArrayList<Integer> opiniones1_5;
+	private ArrayList<String> opinionesComentario;
+	private ArrayList<LocalDate> opinionesFecha;
+	private CategoriaProductos categoria;
+	private String fotografia;
    
-    public Productos(String titulo, String caracteristicas, double precio, int stockCantidad, LocalDate entradaTienda, 
-            CategoriaProductos categoria, String fotografia) {
-        this.titulo = titulo;
-        this.caracteristicas = caracteristicas;
-        this.precio = precio;
-        this.stockCantidad = stockCantidad;
-        this.entradaTienda = entradaTienda;
-        this.categoria = categoria;
-	this.fotografia = fotografia;
-    }
+	public Productos(String titulo, String caracteristicas, double precio, int stockCantidad, LocalDate entradaTienda, CategoriaProductos categoria, String fotografia) {
+		this.titulo = titulo;
+		this.caracteristicas = caracteristicas;
+		this.precio = precio;
+		this.stockCantidad = stockCantidad;
+		this.entradaTienda = entradaTienda;
+		this.categoria = categoria;
+		this.fotografia = fotografia;
+		this.opiniones1_5 = new ArrayList<>();
+		this.opinionesComentario = new ArrayList<>();
+		this.opinionesFecha = new ArrayList<>();
+	}
 
 	public String getTitulo() {
 		return titulo;
@@ -60,28 +64,34 @@ public class Productos implements Serializable {
 	}
 
 
-	public String[] getOpiniones1_5() {
+	public ArrayList<Integer> getOpiniones1_5() {
 		return opiniones1_5;
 	}
-
-	public void setOpiniones1_5(String[] opiniones1_5) {
-		this.opiniones1_5 = opiniones1_5;
+	
+	public int mediaDeOpiniones(){
+		int suma = opiniones1_5.stream().reduce(0, (a,b) -> a + b);
+		
+		return suma / opiniones1_5.size();
 	}
 
-	public String[] getOpinionesComentario() {
+	public void addCalificacion(int unoAlcinco) {
+		this.opiniones1_5.add(unoAlcinco);
+	}
+
+	public ArrayList<String> getOpinionesComentario() {
 		return opinionesComentario;
 	}
 
-	public void setOpinionesComentario(String[] opinionesComentario) {
-		this.opinionesComentario = opinionesComentario;
+	public void addCalificacion(String opinion) {
+		this.opinionesComentario.add(opinion);
 	}
 
-	public String[] getOpinionesFecha() {
+	public ArrayList<LocalDate> getOpinionesFecha() {
 		return opinionesFecha;
 	}
 
-	public void setOpinionesFecha(String[] opinionesFecha) {
-		this.opinionesFecha = opinionesFecha;
+	public void addCalificacion(LocalDate fecha) {
+		this.opinionesFecha.add(fecha);
 	}
 
 	public CategoriaProductos getCategoria() {

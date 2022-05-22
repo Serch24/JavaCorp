@@ -10,8 +10,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collectors;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 import poo.javacorp.CategoriaProductos;
 import poo.javacorp.Productos;
 import poo.javacorp.Usuarios;
@@ -21,13 +26,24 @@ public class Loged extends javax.swing.JFrame {
 	Usuarios usuario;
 	String imagenes = "src/main/java/imagenes/";
 	ArrayList<Productos> todosLosProductos = new ArrayList<>();
-
+	JScrollPane scrollpane1;
 	
 	public Loged(Usuarios usuarioLoged) {
 		initComponents();
 		this.setLocationRelativeTo(null);
 		this.usuario = usuarioLoged;
 		this.rellenarCategoria();
+		filtros.add(filtroRelevancia);
+		filtros.add(filtroMayorP);
+		filtros.add(filtroMenorP);
+		//scrollpane1 = new JScrollPane(panelDeImagenes);
+		//panelDeImagenes.setLayout(new FlowLayout(FlowLayout.LEFT));
+		panelDeImagenes.setLayout(new BoxLayout(panelDeImagenes,BoxLayout.Y_AXIS));
+		//scrollpane1.setBounds(58, 49, 693, 343);
+		//setResizable(false);
+		//add(scrollpane1);
+		//panelDeImagenes.setLayout(new GridBagLayout());
+		
 	}
 	
 	public void rellenarCategoria(){
@@ -37,6 +53,7 @@ public class Loged extends javax.swing.JFrame {
 			buscarCategorias.addItem(categoria + "");
 		}
 	}
+	
 	public void crearProductos(){ 
 		
 		String path = "src/main/java/ficheros/productoss.dat";
@@ -49,6 +66,23 @@ public class Loged extends javax.swing.JFrame {
 		Productos sexto = new Productos("mouse,raton", "Numevo ratón especial para gamers.", 50, 5, LocalDate.now(), CategoriaProductos.COMPONENTES, imagenes + "mouse.jpg");
 		Productos septimo = new Productos("tv,televisor,curvo,4k,3d", "Televisor 4k samsung.", 1000, 8, LocalDate.now(), CategoriaProductos.TVAUDIOYFOTOS, imagenes + "televisor.jpg");
 		Productos octavo = new Productos("tv,televisor,curvo,4k,3d", "Nuevo televisor traido de china.", 600, 10, LocalDate.now(), CategoriaProductos.TVAUDIOYFOTOS, imagenes + "tvSamsung.jpg");
+		
+		
+		//se añaden comentarios, calificación y fecha de calificación para hacer pruebas
+		cuarto.addCalificacion(LocalDate.now());
+		cuarto.addCalificacion("este teclado es una maravilla jajaja");
+		cuarto.addCalificacion(5);
+		cuarto.addCalificacion(LocalDate.now());
+		cuarto.addCalificacion("otro tecladoooooooo");
+		cuarto.addCalificacion(3);
+		
+		quinto.addCalificacion(LocalDate.now());
+		quinto.addCalificacion("el peor teclado que he probado, gas.");
+		quinto.addCalificacion(1);
+		
+		sexto.addCalificacion(LocalDate.now());
+		sexto.addCalificacion("Mouse decente pero me se siente comodo al cogerlo.");
+		sexto.addCalificacion(3);
 		
 		File archivo = new File(path);
 		if(!archivo.exists() && !archivo.isFile()){
@@ -115,72 +149,123 @@ public class Loged extends javax.swing.JFrame {
 		}
 		
 	}
+	
+	public ArrayList<Productos> filtraProductos(){
+		traerProductos();
+		ArrayList<Productos> tmp = todosLosProductos;
+		if(!filtroRelevancia.isSelected()){
+			if(!filtroMayorP.isSelected()){
+				tmp = (ArrayList<Productos>) todosLosProductos.stream()
+					.sorted(Comparator.comparing(Productos::getPrecio))
+					.filter(pro -> pro.getCategoria().toString().equals((String)buscarCategorias.getSelectedItem()))
+					.collect(Collectors.toCollection(ArrayList::new));
+			}else{
+				tmp = (ArrayList<Productos>) todosLosProductos.stream()
+					.filter(pro -> pro.getCategoria().toString().equals((String)buscarCategorias.getSelectedItem()))
+					.sorted(Comparator.comparing(Productos::getPrecio).reversed())
+					.collect(Collectors.toCollection(ArrayList::new));
+			}
+		}else{
+			//filtro relevancia
+			tmp = (ArrayList<Productos>) todosLosProductos.stream()
+				.filter(pro -> pro.getCategoria().toString().equals((String)buscarCategorias.getSelectedItem()))
+				.sorted(Comparator.comparingInt(Productos::mediaDeOpiniones).reversed())
+				.collect(Collectors.toCollection(ArrayList::new));
+
+		}
+		
+		
+		return tmp;
+	}
 
 	@SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+        // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+        private void initComponents() {
 
-        bienv = new javax.swing.JLabel();
-        buscarCategorias = new javax.swing.JComboBox<>();
-        barraBusqueda = new javax.swing.JTextField();
-        BotonBusqueda = new javax.swing.JButton();
-        panelDeImagenes = new javax.swing.JPanel();
+                filtros = new javax.swing.ButtonGroup();
+                bienv = new javax.swing.JLabel();
+                buscarCategorias = new javax.swing.JComboBox<>();
+                barraBusqueda = new javax.swing.JTextField();
+                BotonBusqueda = new javax.swing.JButton();
+                panelDeImagenes = new javax.swing.JPanel();
+                filtroRelevancia = new javax.swing.JRadioButton();
+                filtroMayorP = new javax.swing.JRadioButton();
+                filtroMenorP = new javax.swing.JRadioButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        bienv.setText("Buscar por:");
+                bienv.setText("Buscar por:");
 
-        buscarCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        buscarCategorias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarCategoriasActionPerformed(evt);
-            }
-        });
+                buscarCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+                buscarCategorias.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                buscarCategoriasActionPerformed(evt);
+                        }
+                });
 
-        BotonBusqueda.setText("Buscar");
-        BotonBusqueda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonBusquedaActionPerformed(evt);
-            }
-        });
+                BotonBusqueda.setText("Buscar");
+                BotonBusqueda.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                BotonBusquedaActionPerformed(evt);
+                        }
+                });
 
-        panelDeImagenes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                filtroRelevancia.setText("Por relevancia");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(bienv)
-                .addGap(68, 68, 68)
-                .addComponent(buscarCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(barraBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(BotonBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(panelDeImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bienv)
-                    .addComponent(buscarCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBusqueda))
-                .addGap(42, 42, 42)
-                .addComponent(panelDeImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+                filtroMayorP.setText("Mayor precio");
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+                filtroMenorP.setText("Menor precio");
+
+                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+                getContentPane().setLayout(layout);
+                layout.setHorizontalGroup(
+                        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGap(42, 42, 42)
+                                                                .addComponent(panelDeImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(filtroRelevancia)
+                                                                .addGap(28, 28, 28)
+                                                                .addComponent(filtroMayorP)
+                                                                .addGap(30, 30, 30)
+                                                                .addComponent(filtroMenorP)))
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(bienv)
+                                                .addGap(68, 68, 68)
+                                                .addComponent(buscarCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                                                .addComponent(barraBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(26, 26, 26)
+                                                .addComponent(BotonBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(34, 34, 34))))
+                );
+                layout.setVerticalGroup(
+                        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(bienv)
+                                        .addComponent(buscarCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(barraBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(BotonBusqueda))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(filtroRelevancia)
+                                        .addComponent(filtroMayorP)
+                                        .addComponent(filtroMenorP))
+                                .addGap(23, 23, 23)
+                                .addComponent(panelDeImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+                                .addGap(20, 20, 20))
+                );
+
+                pack();
+        }// </editor-fold>//GEN-END:initComponents
 
         private void buscarCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCategoriasActionPerformed
                 // TODO add your handling code here:
@@ -188,12 +273,15 @@ public class Loged extends javax.swing.JFrame {
 
         private void BotonBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBusquedaActionPerformed
                 String opcionSeleccionada = (String)buscarCategorias.getSelectedItem();
-                System.out.println("Hay " + todosLosProductos.size() + " productos\n");
-
+		
                 //actualiza el Jframe borrando los components que existan
-                traerProductos();
-                panelDeImagenes.removeAll();
+                //traerProductos();
+		//System.out.println("\n");
+                todosLosProductos =  filtraProductos();
+		//System.out.println("\n");
+		panelDeImagenes.removeAll();
                 panelDeImagenes.repaint();
+		
                
                 // se filtra por palabra clave
                if(!barraBusqueda.getText().equals("")){
@@ -215,15 +303,17 @@ public class Loged extends javax.swing.JFrame {
                    }
                 }
                
+	       // los productos filtrados...
                for (Productos producto : todosLosProductos) {
                     if (opcionSeleccionada.equals(producto.getCategoria().toString())) {
                         //System.out.println(producto);
                         ImageIcon i = new ImageIcon(producto.getFotografia());
                         Image aux = i.getImage().getScaledInstance(120, 120, java.awt.Image.SCALE_SMOOTH);
                         i = new ImageIcon(aux);
-                        JLabel test = new JLabel(i);
+                        JLabel test = new JLabel(producto.getCaracteristicas(),i, SwingConstants.RIGHT);
                         panelDeImagenes.add(test);
-                    }else{
+			//scrollpane1.add(test);
+		    }else{
                         //System.out.println(producto);
                     }
                 }
@@ -235,11 +325,15 @@ public class Loged extends javax.swing.JFrame {
         }//GEN-LAST:event_BotonBusquedaActionPerformed
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonBusqueda;
-    private javax.swing.JTextField barraBusqueda;
-    private javax.swing.JLabel bienv;
-    private javax.swing.JComboBox<String> buscarCategorias;
-    private javax.swing.JPanel panelDeImagenes;
-    // End of variables declaration//GEN-END:variables
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        private javax.swing.JButton BotonBusqueda;
+        private javax.swing.JTextField barraBusqueda;
+        private javax.swing.JLabel bienv;
+        private javax.swing.JComboBox<String> buscarCategorias;
+        private javax.swing.JRadioButton filtroMayorP;
+        private javax.swing.JRadioButton filtroMenorP;
+        private javax.swing.JRadioButton filtroRelevancia;
+        private javax.swing.ButtonGroup filtros;
+        private javax.swing.JPanel panelDeImagenes;
+        // End of variables declaration//GEN-END:variables
 }
