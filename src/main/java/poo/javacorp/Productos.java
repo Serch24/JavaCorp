@@ -3,6 +3,7 @@ package poo.javacorp;
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Productos implements Serializable {
 	private static final long serialVersionUID=1L;  
@@ -57,7 +58,10 @@ public class Productos implements Serializable {
 	public int getStockCantidad() {
 		return stockCantidad;
 	}
-
+	
+	public void setStockCantidad(int cantidad){
+		this.stockCantidad = cantidad;
+	}
 
 	public LocalDate getEntradaTienda() {
 		return entradaTienda;
@@ -106,6 +110,54 @@ public class Productos implements Serializable {
 	@Override
 	public String toString() {
 		return "Productos{" + "titulo=" + titulo + ", caracteristicas=" + caracteristicas + ", precio=" + precio + ", stockCantidad=" + stockCantidad + ", entradaTienda=" + entradaTienda + ", opiniones1_5=" + opiniones1_5 + ", opinionesComentario=" + opinionesComentario + ", opinionesFecha=" + opinionesFecha + ", categoria=" + categoria + ", fotografia=" + fotografia + '}';
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Productos other = (Productos) obj;
+		if (Double.doubleToLongBits(this.precio) != Double.doubleToLongBits(other.precio)) {
+			return false;
+		}
+//		if (this.stockCantidad != other.stockCantidad) {
+//			return false;
+//		}
+		if (!Objects.equals(this.titulo, other.titulo)) {
+			return false;
+		}
+		if (!Objects.equals(this.caracteristicas, other.caracteristicas)) {
+			return false;
+		}
+		if (!Objects.equals(this.fotografia, other.fotografia)) {
+			return false;
+		}
+		if (!Objects.equals(this.entradaTienda, other.entradaTienda)) {
+			return false;
+		}
+		if (!Objects.equals(this.opiniones1_5, other.opiniones1_5)) {
+			return false;
+		}
+		if (!Objects.equals(this.opinionesComentario, other.opinionesComentario)) {
+			return false;
+		}
+		if (!Objects.equals(this.opinionesFecha, other.opinionesFecha)) {
+			return false;
+		}
+		return this.categoria == other.categoria;
 	}
     
 	

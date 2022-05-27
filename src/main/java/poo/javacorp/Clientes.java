@@ -1,5 +1,7 @@
 package poo.javacorp;
 
+import java.util.Objects;
+
 public class Clientes extends Usuarios {
 
 	private String dni;
@@ -168,6 +170,76 @@ public class Clientes extends Usuarios {
                         + correoElectronico + ", clave=" + clave + ", calleDireccion=" + calleDireccion + ", numeroDireccion=" 
                         + numeroDireccion + ", cpDireccion=" + cpDireccion + ", ciudadDireccion=" + ciudadDireccion + ", telefono=" 
                         + telefono + "titularTrj=" + titularTrj + ", numeroTrj=" + numeroTrj + ",caducidadTrj=" + mesTrj + "/" + añoTrj+ '}';
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 19 * hash + Objects.hashCode(this.dni);
+		hash = 19 * hash + Objects.hashCode(this.nombre);
+		hash = 19 * hash + Objects.hashCode(this.correoElectronico);
+		hash = 19 * hash + Objects.hashCode(this.clave);
+		hash = 19 * hash + Objects.hashCode(this.calleDireccion);
+		hash = 19 * hash + this.numeroDireccion;
+		hash = 19 * hash + this.cpDireccion;
+		hash = 19 * hash + Objects.hashCode(this.ciudadDireccion);
+		hash = 19 * hash + this.telefono;
+		hash = 19 * hash + Objects.hashCode(this.titularTrj);
+		hash = 19 * hash + Objects.hashCode(this.numeroTrj);
+		hash = 19 * hash + this.mesTrj;
+		hash = 19 * hash + this.añoTrj;
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Clientes other = (Clientes) obj;
+		if (this.numeroDireccion != other.numeroDireccion) {
+			return false;
+		}
+		if (this.cpDireccion != other.cpDireccion) {
+			return false;
+		}
+		if (this.telefono != other.telefono) {
+			return false;
+		}
+		if (this.mesTrj != other.mesTrj) {
+			return false;
+		}
+		if (this.añoTrj != other.añoTrj) {
+			return false;
+		}
+		if (!Objects.equals(this.dni, other.dni)) {
+			return false;
+		}
+		if (!Objects.equals(this.nombre, other.nombre)) {
+			return false;
+		}
+		if (!Objects.equals(this.correoElectronico, other.correoElectronico)) {
+			return false;
+		}
+		if (!Objects.equals(this.clave, other.clave)) {
+			return false;
+		}
+		if (!Objects.equals(this.calleDireccion, other.calleDireccion)) {
+			return false;
+		}
+		if (!Objects.equals(this.ciudadDireccion, other.ciudadDireccion)) {
+			return false;
+		}
+		if (!Objects.equals(this.titularTrj, other.titularTrj)) {
+			return false;
+		}
+		return Objects.equals(this.numeroTrj, other.numeroTrj);
 	}
 	
 }

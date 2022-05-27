@@ -1,5 +1,7 @@
 package poo.javacorp;
 
+import java.util.Objects;
+
 public class Administrador extends Usuarios{
     private String dni;
     private String nombre;
@@ -42,133 +44,201 @@ public class Administrador extends Usuarios{
             this.dni = dni;
         }
         
-    @Override
+	  @Override
         public String getNombre(){
             return nombre;
         }
         
-    @Override
+	 @Override
         public void setNombre(String nombre){
             this.nombre = nombre;
         }
         
-    @Override
+	  @Override
         public String getCorreoElectronico(){
             return correoElectronico;
         }
         
-    @Override
+	  @Override
         public void setCorreoElectronico(String correoElectronico){
             this.correoElectronico = correoElectronico;
         }
         
-    @Override
+	 @Override
         public String getClave(){
             return clave;
         }
         
-    @Override
+	  @Override
         public void setClave(String clave){
             this.clave = clave;
         }
         
-    @Override
+	 @Override
         public String getCalleDireccion(){
             return calleDireccion;
         }
         
-    @Override
+	 @Override
         public void setCalleDireccion(String calleDireccion){
             this.calleDireccion = calleDireccion;
         }
         
-    @Override
+	 @Override
         public int getNumeroDireccion(){
             return numeroDireccion;
         }
         
-    @Override
+	 @Override
         public void setNumeroDireccion(int numeroDireccion){
             this.numeroDireccion = numeroDireccion;
         }
         
-    @Override
+	@Override
         public int getCpDireccion(){
             return cpDireccion;
         }
         
-    @Override
+	 @Override
         public void setCpDireccion(int cpDireccion){
             this.cpDireccion = cpDireccion;
         }
         
-    @Override
+	 @Override
         public String getCiudadDireccion(){
             return ciudadDireccion;
         }
         
-    @Override
+	 @Override
         public void setCiudadDireccion(String ciudadDireccion){
             this.ciudadDireccion = ciudadDireccion;
         }
         
-    @Override
+	 @Override
         public int getTelefono(){
             return telefono;
         }
         
-    @Override
+	@Override
         public void setTelefono(int telefono){
             this.telefono = telefono;
         }
         
-    @Override
+	  @Override
         public String getTitularTrj(){
             return titularTrj;
         }
         
-    @Override
+	@Override
         public void setTitularTrj(String titularTrj){
             this.titularTrj = titularTrj;
         }
         
-    @Override
+	 @Override
         public String getNumeroTrj(){
             return numeroTrj;
         }
         
-    @Override
+	 @Override
         public void setNumeroTrj(String numeroTrj){
             this.numeroTrj = numeroTrj;
         }
         
-    @Override
+	 @Override
         public int getMesTrj(){
             return mesTrj;
         }
         
-    @Override
+	@Override
         public void setMesTrj(int mesTrj){
             this.mesTrj = mesTrj;
         }
     
-    @Override
+	@Override
         public int getAñoTrj(){
             return añoTrj;
         }
         
-    @Override
+	@Override
         public void setAñoTrj(int añoTrj){
             this.añoTrj = añoTrj;
         }
 
-    @Override
-    public String toString() {
+	@Override
+	public String toString() {
         return "Administrador{" + "dni=" + dni + ", nombre=" + nombre + ", correoElectronico=" 
                 + correoElectronico + ", clave=" + clave + ", calleDireccion=" + calleDireccion + ", numeroDireccion=" 
                 + numeroDireccion + ", cpDireccion=" + cpDireccion + ", ciudadDireccion=" + ciudadDireccion + ", telefono=" 
                 + telefono + ", titularTrj=" + titularTrj + ", numeroTrj=" + numeroTrj + ", caducidadTrj=" + mesTrj + "/" + añoTrj + '}';
     }
- 
-    
+
+	@Override
+	public int hashCode() {
+		int hash = 5;
+		hash = 47 * hash + Objects.hashCode(this.dni);
+		hash = 47 * hash + Objects.hashCode(this.nombre);
+		hash = 47 * hash + Objects.hashCode(this.correoElectronico);
+		hash = 47 * hash + Objects.hashCode(this.clave);
+		hash = 47 * hash + Objects.hashCode(this.calleDireccion);
+		hash = 47 * hash + this.numeroDireccion;
+		hash = 47 * hash + this.cpDireccion;
+		hash = 47 * hash + Objects.hashCode(this.ciudadDireccion);
+		hash = 47 * hash + this.telefono;
+		hash = 47 * hash + Objects.hashCode(this.titularTrj);
+		hash = 47 * hash + Objects.hashCode(this.numeroTrj);
+		hash = 47 * hash + this.mesTrj;
+		hash = 47 * hash + this.añoTrj;
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Administrador other = (Administrador) obj;
+		if (this.numeroDireccion != other.numeroDireccion) {
+			return false;
+		}
+		if (this.cpDireccion != other.cpDireccion) {
+			return false;
+		}
+		if (this.telefono != other.telefono) {
+			return false;
+		}
+		if (this.mesTrj != other.mesTrj) {
+			return false;
+		}
+		if (this.añoTrj != other.añoTrj) {
+			return false;
+		}
+		if (!Objects.equals(this.dni, other.dni)) {
+			return false;
+		}
+		if (!Objects.equals(this.nombre, other.nombre)) {
+			return false;
+		}
+		if (!Objects.equals(this.correoElectronico, other.correoElectronico)) {
+			return false;
+		}
+		if (!Objects.equals(this.clave, other.clave)) {
+			return false;
+		}
+		if (!Objects.equals(this.calleDireccion, other.calleDireccion)) {
+			return false;
+		}
+		if (!Objects.equals(this.ciudadDireccion, other.ciudadDireccion)) {
+			return false;
+		}
+		if (!Objects.equals(this.titularTrj, other.titularTrj)) {
+			return false;
+		}
+		return Objects.equals(this.numeroTrj, other.numeroTrj);
+	}
 }

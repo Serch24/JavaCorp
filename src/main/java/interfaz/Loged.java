@@ -34,7 +34,7 @@ public class Loged extends javax.swing.JFrame{
 		initComponents();
 		this.setLocationRelativeTo(null);
 		this.usuario = usuarioLoged;
-		this.rellenarCategoria();
+		rellenarCategoria();
 		filtros.add(filtroRelevancia);
 		filtros.add(filtroMayorP);
 		filtros.add(filtroMenorP);
@@ -47,7 +47,7 @@ public class Loged extends javax.swing.JFrame{
 		carrito.setIcon(i);
 	}	
 	
-	public void rellenarCategoria(){
+	private void rellenarCategoria(){
 		buscarCategorias.removeAllItems();
 		
 		for (CategoriaProductos categoria : CategoriaProductos.values()) {
@@ -348,7 +348,7 @@ public class Loged extends javax.swing.JFrame{
 
         private void carritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carritoActionPerformed
                 // TODO add your handling code here:
-		CarritoDeCompra carro = new CarritoDeCompra();
+		CarritoDeCompra carro = new CarritoDeCompra(usuario);
 		this.dispose();
 		carro.setVisible(true);
 		

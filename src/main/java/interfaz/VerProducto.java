@@ -5,8 +5,17 @@
 package interfaz;
 
 import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import poo.javacorp.Productos;
 import poo.javacorp.Usuarios;
@@ -16,6 +25,7 @@ public class VerProducto extends javax.swing.JFrame {
 	private Productos producto;
 	private Usuarios usuario;
 	private HashMap<Usuarios, ArrayList<Productos>> productEnCarrito;
+	private String PATH = "src/main/java/ficheros/carritoss.dat";
 	
 	public VerProducto(Productos producto, Usuarios usuario) {
 		initComponents();
@@ -26,12 +36,121 @@ public class VerProducto extends javax.swing.JFrame {
 		mostrarProducto();
 	}
 	
-	public boolean guardarProductoAcarrito(int cantidad){
+	public boolean hayStock(int cantidad){
+		boolean stock = false;
+		File archivo = new File(PATH);
 		
-		// falta comprobar cuanta cantidad sobra del producto para actualizar el carrito
-		return true;
+		if(!archivo.exists() && !archivo.isFile()){
+			try {
+				archivo.createNewFile();
+				stock = producto.getStockCantidad() >= cantidad;
+			} catch (IOException ex) {
+				System.out.println(ex);
+			}
+		}else{
+			// se recogen todos los productos y se almacenan en la variable "productEnCarrito"
+			try {
+			    FileInputStream tmp = new FileInputStream(PATH);
+			    ObjectInputStream aa = new ObjectInputStream(tmp);
+			    productEnCarrito = (HashMap<Usuarios, ArrayList<Productos>>) aa.readObject();
+			    tmp.close();
+			    aa.close();
+			} catch (IOException | ClassNotFoundException e) {
+				stock = producto.getStockCantidad() >= cantidad;
+			}
+			int totalStockDelProducto = productEnCarrito
+							.entrySet()
+							.stream()
+							.filter(lista -> lista.getValue().contains(producto))
+							.map(Map.Entry::getValue)
+							.mapToInt(t -> t.get(0).getStockCantidad())
+							.sum();
+
+			if((producto.getStockCantidad() - totalStockDelProducto) >= cantidad){
+				stock = true;
+			}
+		}
+		
+		return stock;
 	}
 
+	public boolean guardarProductoAcarrito(int cantidad){
+		boolean guardado = false;
+		
+		Productos proTmp = producto;
+		ArrayList<Productos> listaProductos = new ArrayList<>();
+		ArrayList<Productos> tmpProd;
+
+		if(!productEnCarrito.isEmpty() && productEnCarrito.containsKey(usuario)){
+			boolean hayProducto = productEnCarrito.entrySet()
+						.stream()
+						.filter(user -> user.getKey().equals(usuario))
+						.filter(lista -> lista.getValue().contains(producto))
+						.findFirst().isPresent();
+			
+			listaProductos = productEnCarrito.entrySet()
+						.stream()
+						.filter(user -> user.getKey().equals(usuario))
+						.findFirst().get().getValue();
+			
+			if(!listaProductos.isEmpty()){
+				if(!hayProducto){
+					proTmp.setStockCantidad(cantidad);
+				}else{
+					int stockA = productEnCarrito.entrySet()
+								.stream()
+								.filter(user -> user.getKey().equals(usuario))
+								.filter(lista -> lista.getValue().contains(producto))
+								.findFirst().get().getValue().get(0).getStockCantidad();
+					proTmp.setStockCantidad(stockA + cantidad);
+					
+//					listaProductos = productEnCarrito.entrySet()
+//								.stream()
+//								.filter(user -> user.getKey().equals(usuario))
+//								.filter(lista -> !lista.getValue().contains(producto))
+//								.findFirst().get().getValue();
+					
+					listaProductos =  productEnCarrito.entrySet()
+										.stream()	
+										.filter(user -> user.getKey().equals(usuario))	
+										.findFirst()
+										.get()
+										.getValue();
+					
+					// se nececita el doble filtro por separado porque junto no funcionaba, no se por qué xd
+					tmpProd = new ArrayList<>(listaProductos.stream().filter(pr -> !pr.equals(producto)).collect(Collectors.<Productos>toList()));
+					listaProductos = tmpProd;
+				}
+			}else{
+				proTmp.setStockCantidad(cantidad);
+			}
+		}else{
+			proTmp.setStockCantidad(cantidad);
+		}
+		
+		listaProductos.add(proTmp);
+		
+		try {
+			productEnCarrito.put(usuario, listaProductos);
+			//se guarda el objeto en un fichero y se cierran los streams.
+			FileOutputStream tmp = new FileOutputStream(PATH, false);
+			ObjectOutputStream aa = new ObjectOutputStream(tmp);
+			aa.writeObject(productEnCarrito);
+			tmp.close();
+			aa.close();
+			tmp.flush();
+			aa.flush();
+			guardado = true;
+			
+		} catch (FileNotFoundException ex) {
+			guardado = false;
+		} catch (IOException ex) {
+			guardado = false;
+		}
+		
+		return guardado;
+	}
+	
 	@SuppressWarnings("unchecked")
         // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
         private void initComponents() {
@@ -113,21 +232,22 @@ public class VerProducto extends javax.swing.JFrame {
 
         private void addCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCarritoActionPerformed
 		// TODO add your handling code here:
+
 		int cantidadProducto = Integer.parseInt(cantidadText.getText());
-		if( cantidadProducto > producto.getStockCantidad()){
+//		hayStock(cantidadProducto);
+//		guardarProductoAcarrito(cantidadProducto);
+		if(!hayStock(cantidadProducto)){
 			errorLabel.setText("No hay stock suficiente, por favor reduzca la cantidad.");
-			errorLabel.setForeground(new java.awt.Color(255,0,0));
-		}else{	
+			errorLabel.setForeground(new java.awt.Color(255,0,0)); // el texto se pone en rojo
+		}else{
 			if(guardarProductoAcarrito(cantidadProducto)){
 				Loged volver = new Loged(usuario);
 				this.dispose();
 				volver.setVisible(true);
 			}else{
-				System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+				System.out.println("algo ha pasado!");
 			}
-			
 		}
-		
         }//GEN-LAST:event_addCarritoActionPerformed
 
         private void cantidadTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadTextKeyTyped

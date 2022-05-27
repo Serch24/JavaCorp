@@ -1,5 +1,7 @@
 package poo.javacorp;
 
+import java.util.Objects;
+
 public class Empresas extends Usuarios {
 	private String cfi;
 	private String web;
@@ -180,7 +182,80 @@ public class Empresas extends Usuarios {
                         + telefono + ", titularTrj=" + titularTrj + ", numeroTrj=" + numeroTrj + ", caducidadTrj=" + mesTrj + "/" + añoTrj +'}';
 	}
 
-	
-	
+	@Override
+	public int hashCode() {
+		int hash = 3;
+		hash = 97 * hash + Objects.hashCode(this.cfi);
+		hash = 97 * hash + Objects.hashCode(this.web);
+		hash = 97 * hash + Objects.hashCode(this.nombre);
+		hash = 97 * hash + Objects.hashCode(this.correoElectronico);
+		hash = 97 * hash + Objects.hashCode(this.clave);
+		hash = 97 * hash + Objects.hashCode(this.calleDireccion);
+		hash = 97 * hash + this.numeroDireccion;
+		hash = 97 * hash + this.cpDireccion;
+		hash = 97 * hash + Objects.hashCode(this.ciudadDireccion);
+		hash = 97 * hash + this.telefono;
+		hash = 97 * hash + Objects.hashCode(this.titularTrj);
+		hash = 97 * hash + Objects.hashCode(this.numeroTrj);
+		hash = 97 * hash + this.mesTrj;
+		hash = 97 * hash + this.añoTrj;
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Empresas other = (Empresas) obj;
+		if (this.numeroDireccion != other.numeroDireccion) {
+			return false;
+		}
+		if (this.cpDireccion != other.cpDireccion) {
+			return false;
+		}
+		if (this.telefono != other.telefono) {
+			return false;
+		}
+		if (this.mesTrj != other.mesTrj) {
+			return false;
+		}
+		if (this.añoTrj != other.añoTrj) {
+			return false;
+		}
+		if (!Objects.equals(this.cfi, other.cfi)) {
+			return false;
+		}
+		if (!Objects.equals(this.web, other.web)) {
+			return false;
+		}
+		if (!Objects.equals(this.nombre, other.nombre)) {
+			return false;
+		}
+		if (!Objects.equals(this.correoElectronico, other.correoElectronico)) {
+			return false;
+		}
+		if (!Objects.equals(this.clave, other.clave)) {
+			return false;
+		}
+		if (!Objects.equals(this.calleDireccion, other.calleDireccion)) {
+			return false;
+		}
+		if (!Objects.equals(this.ciudadDireccion, other.ciudadDireccion)) {
+			return false;
+		}
+		if (!Objects.equals(this.titularTrj, other.titularTrj)) {
+			return false;
+		}
+		return Objects.equals(this.numeroTrj, other.numeroTrj);
+	}
+
+
 
 }
