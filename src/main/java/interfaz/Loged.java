@@ -38,8 +38,6 @@ public class Loged extends javax.swing.JFrame{
 		filtros.add(filtroRelevancia);
 		filtros.add(filtroMayorP);
 		filtros.add(filtroMenorP);
-		//scrollpane1 = new JScrollPane(panelDeImagenes);
-		//panelDeImagenes.setLayout(new FlowLayout(FlowLayout.LEFT));
 		panelDeImagenes.setLayout(new BoxLayout(panelDeImagenes,BoxLayout.Y_AXIS));
 		ImageIcon i = new ImageIcon(imagenes + "carrito.png");
 		Image aux = i.getImage().getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
