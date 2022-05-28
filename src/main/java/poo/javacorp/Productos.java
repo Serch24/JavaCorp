@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Productos implements Serializable {
+public class Productos implements Serializable, Cloneable {
 	private static final long serialVersionUID=1L;  
 	private String titulo;
 	private String caracteristicas;
@@ -29,6 +29,13 @@ public class Productos implements Serializable {
 		this.opiniones1_5 = new ArrayList<>();
 		this.opinionesComentario = new ArrayList<>();
 		this.opinionesFecha = new ArrayList<>();
+	}
+	
+	public Productos(Productos pCopy){
+		this(pCopy.getTitulo(), pCopy.getCaracteristicas(), pCopy.getPrecio(), pCopy.getStockCantidad(), pCopy.getEntradaTienda(), pCopy.getCategoria(), pCopy.getFotografia());
+		this.opiniones1_5 = pCopy.getOpiniones1_5();
+		this.opinionesComentario = pCopy.getOpinionesComentario();
+		this.opinionesFecha = pCopy.getOpinionesFecha();
 	}
 
 	public String getTitulo() {
@@ -159,6 +166,5 @@ public class Productos implements Serializable {
 		}
 		return this.categoria == other.categoria;
 	}
-    
 	
 }

@@ -97,7 +97,8 @@ public class CarritoDeCompra extends javax.swing.JFrame {
 			} catch (IOException | ClassNotFoundException e) {
 					//
 			}
-			productEnCarrito.entrySet().stream().map(Map.Entry::getValue).forEach(System.out::println);
+			productEnCarrito.entrySet().stream().forEach(System.out::println);
+			System.out.println("\n");
 			System.out.println(productEnCarrito.get(usuario).size());
 		}
 	}

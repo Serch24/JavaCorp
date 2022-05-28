@@ -58,14 +58,22 @@ public class VerProducto extends javax.swing.JFrame {
 			} catch (IOException | ClassNotFoundException e) {
 				stock = producto.getStockCantidad() >= cantidad;
 			}
-			int totalStockDelProducto = productEnCarrito
-							.entrySet()
-							.stream()
-							.filter(lista -> lista.getValue().contains(producto))
-							.map(Map.Entry::getValue)
-							.mapToInt(t -> t.get(0).getStockCantidad())
-							.sum();
-
+//			int totalStockDelProducto = productEnCarrito
+//							.entrySet()
+//							.stream()
+//							.filter(lista -> lista.getValue().contains(producto))
+//							.map(Map.Entry::getValue)
+//							.mapToInt(t -> t.get(0).getStockCantidad())
+//							.sum();
+			int totalStockDelProducto = productEnCarrito.entrySet().stream().filter(lista -> lista.getValue().contains(producto)).map(Map.Entry::getValue).toList()
+				.stream()
+				.map(a -> a.stream()
+					.filter(p -> p.equals(producto))
+					.findFirst())
+				.mapToInt(t -> t.get().getStockCantidad())
+				.sum();
+			
+			//System.out.println("Total cantidad : " + totalStockDelProducto + "\n" + "cantidad del producto: " + producto.getStockCantidad());
 			if((producto.getStockCantidad() - totalStockDelProducto) >= cantidad){
 				stock = true;
 			}
@@ -77,7 +85,7 @@ public class VerProducto extends javax.swing.JFrame {
 	public boolean guardarProductoAcarrito(int cantidad){
 		boolean guardado = false;
 		
-		Productos proTmp = producto;
+		Productos proTmp = new Productos(producto);
 		ArrayList<Productos> listaProductos = new ArrayList<>();
 		ArrayList<Productos> tmpProd;
 
@@ -101,7 +109,7 @@ public class VerProducto extends javax.swing.JFrame {
 								.stream()
 								.filter(user -> user.getKey().equals(usuario))
 								.filter(lista -> lista.getValue().contains(producto))
-								.findFirst().get().getValue().get(0).getStockCantidad();
+								.findFirst().get().getValue().stream().filter(p -> p.equals(producto)).mapToInt(a -> a.getStockCantidad()).sum();
 					proTmp.setStockCantidad(stockA + cantidad);
 					
 //					listaProductos = productEnCarrito.entrySet()
@@ -234,8 +242,8 @@ public class VerProducto extends javax.swing.JFrame {
 		// TODO add your handling code here:
 
 		int cantidadProducto = Integer.parseInt(cantidadText.getText());
-//		hayStock(cantidadProducto);
-//		guardarProductoAcarrito(cantidadProducto);
+		//hayStock(cantidadProducto);
+		//guardarProductoAcarrito(cantidadProducto);
 		if(!hayStock(cantidadProducto)){
 			errorLabel.setText("No hay stock suficiente, por favor reduzca la cantidad.");
 			errorLabel.setForeground(new java.awt.Color(255,0,0)); // el texto se pone en rojo

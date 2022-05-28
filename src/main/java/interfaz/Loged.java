@@ -289,8 +289,8 @@ public class Loged extends javax.swing.JFrame{
                 String opcionSeleccionada = (String)buscarCategorias.getSelectedItem();
 		
                 //actualiza el Jframe borrando los components que existan
-                //traerProductos();
-		//System.out.println("\n");
+                traerProductos();
+		System.out.println("\n");
                 todosLosProductos =  filtraProductos();
 		//System.out.println("\n");
 		panelDeImagenes.removeAll();
