@@ -1,0 +1,16 @@
+Fecha de venta: 2022-05-29
+Productos:
+
+Nombres: mouse,raton
+Cantidad: 1
+precio €/ud: 50.0
+
+
+Valor total de la compra: 55.0€
+
+Datos del comprador: 
+
+Nombre: adsd
+Telefono: 2332
+Ciudad: dwfdsef
+Dirreción: swdw

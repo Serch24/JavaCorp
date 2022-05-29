@@ -5,28 +5,30 @@
 package interfaz;
 
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
 import java.awt.Image;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import poo.javacorp.Productos;
 import poo.javacorp.Usuarios;
+import java.time.*;
+
 
 public class CarritoDeCompra extends javax.swing.JFrame {
 
@@ -34,6 +36,8 @@ public class CarritoDeCompra extends javax.swing.JFrame {
 	private String PATH = "src/main/java/ficheros/carritoss.dat";
 	private Usuarios usuario;
 	private ArrayList<Productos> todosLosProductos;
+	private double totalSaldo;
+	
 	
 	public CarritoDeCompra(Usuarios usuario) {
 		initComponents();
@@ -133,6 +137,7 @@ public class CarritoDeCompra extends javax.swing.JFrame {
         private void botonComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprarActionPerformed
 		FileInputStream in = null;
 		String pathProductos = "src/main/java/ficheros/productoss.dat";
+		ArrayList<Productos> auxProd = new ArrayList<>();
 		
 		try {
 			in = new FileInputStream(pathProductos);
@@ -143,7 +148,7 @@ public class CarritoDeCompra extends javax.swing.JFrame {
 		} catch (IOException | ClassNotFoundException ex) {
 			System.out.println(ex);
 		}
-		
+		recibo(productEnCarrito);
 		// se resta el stock a los productos que se han comprado
 		for (Productos tProductos : todosLosProductos) {
 			for (Map.Entry<Usuarios, ArrayList<Productos>> entry : productEnCarrito.entrySet()) {
@@ -189,6 +194,7 @@ public class CarritoDeCompra extends javax.swing.JFrame {
 		} catch (IOException ex) {
 			System.out.println(ex);
 		}
+		JOptionPane.showMessageDialog(this, "Has comprado todos los productos, felicidades!\n El recibo de la compa se ha generado", "Compra hecha", JOptionPane.INFORMATION_MESSAGE);
 		
 		Loged log = new Loged(usuario);
 		this.dispose();
@@ -198,8 +204,67 @@ public class CarritoDeCompra extends javax.swing.JFrame {
 	
 	public void addPrecioTotaltolabel(){
 		int gastoEnvio = 5;
-		double t = productEnCarrito.entrySet().stream().filter(c -> c.getKey().equals(usuario)).map(p -> p.getValue().stream().map(a -> a)).findFirst().get().mapToDouble(sum -> (sum.getPrecio() * sum.getStockCantidad())).sum();
-		totalProductos.setText("Saldo total de " + (t+gastoEnvio) + "€. Incluido gastos de envío.");
+		totalSaldo = productEnCarrito.entrySet().stream().filter(c -> c.getKey().equals(usuario)).map(p -> p.getValue().stream().map(a -> a)).findFirst().get().mapToDouble(sum -> (sum.getPrecio() * sum.getStockCantidad())).sum();
+		totalProductos.setText("Saldo total de " + (totalSaldo + gastoEnvio) + "€. Incluido gastos de envío.");
+	}
+	
+	public void recibo(HashMap<Usuarios, ArrayList<Productos>> losProductos){
+		String ruta = "src/main/java/ficheros/recibo_" + usuario.getNombre() + "_"+ Math.random() + ".txt";
+		File recibo = new File(ruta);
+		try {	
+			if(recibo.createNewFile()){
+				PrintWriter salida = new PrintWriter(new BufferedWriter(new FileWriter(ruta)));
+				salida.println("Fecha de venta: " + LocalDate.now());
+				salida.println("Productos:\n");
+				for (Map.Entry<Usuarios, ArrayList<Productos>> entry : losProductos.entrySet()) {
+					if(entry.getKey().equals(usuario)){ 
+						for (Productos product : entry.getValue()) {
+							Object key = entry.getKey();
+							Object val = entry.getValue();
+							salida.println("Nombres: " + product.getTitulo());
+							salida.println("Cantidad: " + product.getStockCantidad());
+							salida.println("precio €/ud: " + product.getPrecio());
+							salida.println("\n");
+						}
+					}
+				}
+				salida.println("Valor total de la compra: " + (totalSaldo + 5) + "€\n");
+				
+				salida.println("Datos del comprador: \n");
+				salida.println("Nombre: " + usuario.getNombre());
+				salida.println("Telefono: " + usuario.getTelefono());
+				salida.println("Ciudad: " + usuario.getCiudadDireccion());
+				salida.println("Dirreción: " + usuario.getCalleDireccion());
+				salida.close();
+			}
+			
+		} catch (IOException ex) {
+			System.out.println(ex);
+		}
+		guardarVenta(LocalDateTime.now(), losProductos);
+		
+	}
+	
+	public void guardarVenta(LocalDateTime fech, HashMap<Usuarios, ArrayList<Productos>> losProductos){
+		HashMap<LocalDateTime, HashMap<Usuarios, ArrayList<Productos>>> a = new HashMap<>();
+		HashMap<Usuarios, ArrayList<Productos>> productosDelUsuario = new HashMap<>();	
+		productosDelUsuario.put(usuario, losProductos.get(usuario));
+		a.put(fech, productosDelUsuario);
+		
+		try {
+			//se guarda el objeto en un fichero y se cierran los streams.
+			FileOutputStream tmp = new FileOutputStream("src/main/java/ficheros/ventass.dat", false);
+			ObjectOutputStream aa = new ObjectOutputStream(tmp);
+			aa.writeObject(a);
+			tmp.close();
+			aa.close();
+			tmp.flush();
+			aa.flush();
+		} catch (FileNotFoundException ex) {
+			System.out.println(ex);
+		} catch (IOException ex) {
+			System.out.println(ex);
+		}
 	}
 	
 	private void mostrarProducto(){

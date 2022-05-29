@@ -186,11 +186,12 @@ public class Loged extends javax.swing.JFrame{
                 buscarCategorias = new javax.swing.JComboBox<>();
                 barraBusqueda = new javax.swing.JTextField();
                 BotonBusqueda = new javax.swing.JButton();
-                panelDeImagenes = new javax.swing.JPanel();
                 filtroRelevancia = new javax.swing.JRadioButton();
                 filtroMayorP = new javax.swing.JRadioButton();
                 filtroMenorP = new javax.swing.JRadioButton();
                 carrito = new javax.swing.JButton();
+                jScrollPane1 = new javax.swing.JScrollPane();
+                panelDeImagenes = new javax.swing.JPanel();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -224,41 +225,41 @@ public class Loged extends javax.swing.JFrame{
                         }
                 });
 
+                panelDeImagenes.setLayout(new javax.swing.BoxLayout(panelDeImagenes, javax.swing.BoxLayout.Y_AXIS));
+                jScrollPane1.setViewportView(panelDeImagenes);
+
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(21, 21, 21)
-                                                .addComponent(bienv)
-                                                .addGap(47, 47, 47)
-                                                .addComponent(buscarCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                                                .addComponent(barraBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(32, 32, 32)
-                                                .addComponent(BotonBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(37, 37, 37)
-                                                .addComponent(carrito, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(31, 31, 31))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(filtroRelevancia)
-                                                .addGap(28, 28, 28)
-                                                .addComponent(filtroMayorP)
-                                                .addGap(30, 30, 30)
-                                                .addComponent(filtroMenorP)
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(21, 21, 21)
+                                .addComponent(bienv)
+                                .addGap(47, 47, 47)
+                                .addComponent(buscarCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                                .addComponent(barraBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(BotonBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(carrito, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(panelDeImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(59, 59, 59)
+                                .addComponent(filtroRelevancia)
+                                .addGap(28, 28, 28)
+                                .addComponent(filtroMayorP)
+                                .addGap(30, 30, 30)
+                                .addComponent(filtroMenorP)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47))
                 );
                 layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(carrito, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -266,14 +267,14 @@ public class Loged extends javax.swing.JFrame{
                                                 .addComponent(barraBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(BotonBusqueda)
                                                 .addComponent(bienv)))
-                                .addGap(18, 18, 18)
+                                .addGap(16, 16, 16)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(filtroRelevancia)
                                         .addComponent(filtroMayorP)
                                         .addComponent(filtroMenorP))
-                                .addGap(18, 18, 18)
-                                .addComponent(panelDeImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28))
+                                .addGap(30, 30, 30)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(47, Short.MAX_VALUE))
                 );
 
                 pack();
@@ -363,6 +364,7 @@ public class Loged extends javax.swing.JFrame{
         private javax.swing.JRadioButton filtroMenorP;
         private javax.swing.JRadioButton filtroRelevancia;
         private javax.swing.ButtonGroup filtros;
+        private javax.swing.JScrollPane jScrollPane1;
         private javax.swing.JPanel panelDeImagenes;
         // End of variables declaration//GEN-END:variables
 }

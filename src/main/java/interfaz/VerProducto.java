@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import poo.javacorp.Productos;
 import poo.javacorp.Usuarios;
 
@@ -262,6 +263,7 @@ public class VerProducto extends javax.swing.JFrame {
 			errorLabel.setForeground(new java.awt.Color(255,0,0)); // el texto se pone en rojo
 		}else{
 			if(guardarProductoAcarrito(cantidadProducto)){
+				JOptionPane.showMessageDialog(this, "¡Producto añadido al carrito!", "carrito de compra", JOptionPane.INFORMATION_MESSAGE);
 				Loged volver = new Loged(usuario);
 				this.dispose();
 				volver.setVisible(true);
