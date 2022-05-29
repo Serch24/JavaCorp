@@ -12,13 +12,14 @@ import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import poo.javacorp.Administrador;
 import poo.javacorp.CategoriaProductos;
 import poo.javacorp.Productos;
 import poo.javacorp.Usuarios;
@@ -28,7 +29,6 @@ public class Loged extends javax.swing.JFrame{
 	Usuarios usuario;
 	String imagenes = "src/main/java/imagenes/";
 	ArrayList<Productos> todosLosProductos = new ArrayList<>();
-	JScrollPane scrollpane1;
 	
 	public Loged(Usuarios usuarioLoged) {
 		initComponents();
@@ -53,10 +53,11 @@ public class Loged extends javax.swing.JFrame{
 		}
 	}
 	
-	public void crearProductos(){ 
+	public void crearProductosyAdministradores(){ 
 		
 		String path = "src/main/java/ficheros/productoss.dat";
 		
+		//Productos por defecto
 		Productos primero = new Productos("portatil,ordenador,sobremesa,torre", "Mac de última generación.", 1000, 4, LocalDate.now(), CategoriaProductos.ORDENADORES, imagenes + "mac.jpg");
 		Productos segundo = new Productos("movil,celular,huawei,samsung,android,iphone", "Nuevo redmi note 11 pro.", 500, 5, LocalDate.now(), CategoriaProductos.MOVILESYTELEFONIA, imagenes + "movil.jpg");
 		Productos tercero = new Productos("consola,juegos,juego,xbox,play", "Nueva consola, super moderna xbox 360 pro.", 600, 10, LocalDate.now(), CategoriaProductos.CONSOLASYVIDEOJUEGOS, imagenes + "xbox.jpg");
@@ -64,24 +65,53 @@ public class Loged extends javax.swing.JFrame{
 		Productos quinto = new Productos("teclado,tecla,keyboard", "segundo Teclado último modelo, especial para gaming, con teclas silenciosas.", 100, 20, LocalDate.now(), CategoriaProductos.COMPONENTES, imagenes + "teclado2.jpg");
 		Productos sexto = new Productos("mouse,raton", "Numevo ratón especial para gamers.", 50, 5, LocalDate.now(), CategoriaProductos.COMPONENTES, imagenes + "mouse.jpg");
 		Productos septimo = new Productos("tv,televisor,curvo,4k,3d", "Televisor 4k samsung.", 1000, 8, LocalDate.now(), CategoriaProductos.TVAUDIOYFOTOS, imagenes + "televisor.jpg");
-		Productos octavo = new Productos("tv,televisor,curvo,4k,3d", "Nuevo televisor traido de china.", 600, 10, LocalDate.now(), CategoriaProductos.TVAUDIOYFOTOS, imagenes + "tvSamsung.jpg");
+		Productos octavo = new Productos("tv,televisor,curvo,4k,3d,samsumg", "Nuevo televisor.", 600, 10, LocalDate.now(), CategoriaProductos.TVAUDIOYFOTOS, imagenes + "tvSamsung.jpg");
+		Productos noveno = new Productos("tv,televisor,curvo,4k,3d,huawei", "Cuentan con un diseño con marcos compactos y un grosor de solo 6,9 mm y, además, el modelo Pro incluye una pequeña cámara frontal de 1920 x 1080 píxeles de resolución de tipo \"pop-up\", es decir, que sale o se oculta cuando se necesite.", 600, 10, LocalDate.now(), CategoriaProductos.TVAUDIOYFOTOS, imagenes + "tvHuawei.jpg");
+		Productos decimo = new Productos("movil,celular,huawei,samsung,android,iphone", "Disfruta de tiempos de carga mínimos gracias a la SSD de velocidad ultraalta, una experiencia de juego más profunda mediante retroalimentación háptica1, gatillos adaptativos1 y audio 3D*, y una nueva e increíble generación de juegos de PlayStation.", 600, 3, LocalDate.now(), CategoriaProductos.CONSOLASYVIDEOJUEGOS, imagenes + "play5.jpg");
 		
+		//Administradores por defecto
+		Administrador ad1 = new Administrador("pepe", "admin@javacomp.com", "admin", "nose", 23, 28084, "Madrid", 775374835, "pepe", "232425435", 24, 12, "08247525S");
 		
 		//se añaden comentarios, calificación y fecha de calificación para hacer pruebas
+		primero.addCalificacion(LocalDate.now());
+		primero.addCalificacion("este teclado es una maravilla jajaja");
+		primero.addCalificacion(5);
+		
+		segundo.addCalificacion(LocalDate.now());
+		segundo.addCalificacion("otro tecladoooooooo");
+		segundo.addCalificacion(3);
+		
+		tercero.addCalificacion(LocalDate.now());
+		tercero.addCalificacion("el peor teclado que he probado, gas.");
+		tercero.addCalificacion(1);
+		
 		cuarto.addCalificacion(LocalDate.now());
-		cuarto.addCalificacion("este teclado es una maravilla jajaja");
-		cuarto.addCalificacion(5);
-		cuarto.addCalificacion(LocalDate.now());
-		cuarto.addCalificacion("otro tecladoooooooo");
+		cuarto.addCalificacion("Mouse decente pero me se siente comodo al cogerlo.");
 		cuarto.addCalificacion(3);
 		
 		quinto.addCalificacion(LocalDate.now());
-		quinto.addCalificacion("el peor teclado que he probado, gas.");
-		quinto.addCalificacion(1);
+		quinto.addCalificacion("Mouse decente pero me se siente comodo al cogerlo.");
+		quinto.addCalificacion(3);
 		
 		sexto.addCalificacion(LocalDate.now());
 		sexto.addCalificacion("Mouse decente pero me se siente comodo al cogerlo.");
 		sexto.addCalificacion(3);
+		
+		septimo.addCalificacion(LocalDate.now());
+		septimo.addCalificacion("Mouse decente pero me se siente comodo al cogerlo.");
+		septimo.addCalificacion(3);
+		
+		octavo.addCalificacion(LocalDate.now());
+		octavo.addCalificacion("Mouse decente pero me se siente comodo al cogerlo.");
+		octavo.addCalificacion(3);
+		
+		noveno.addCalificacion(LocalDate.now());
+		noveno.addCalificacion("Mouse decente pero me se siente comodo al cogerlo.");
+		noveno.addCalificacion(3);
+		
+		decimo.addCalificacion(LocalDate.now());
+		decimo.addCalificacion("Mouse decente pero me se siente comodo al cogerlo.");
+		decimo.addCalificacion(3);
 		
 		File archivo = new File(path);
 		if(!archivo.exists() && !archivo.isFile()){
@@ -116,6 +146,8 @@ public class Loged extends javax.swing.JFrame{
 			todosLosProductos.add(sexto);
 			todosLosProductos.add(septimo);
 			todosLosProductos.add(octavo);
+			todosLosProductos.add(noveno);
+			todosLosProductos.add(decimo);
 			
 			//se guarda el objeto en un fichero y se cierran los streams.
 			FileOutputStream tmp = new FileOutputStream(path,false);
@@ -130,7 +162,41 @@ public class Loged extends javax.swing.JFrame{
 		} catch (IOException ex) {
 			System.out.println(ex);
 		}
-		System.out.println(todosLosProductos);
+		
+		HashMap<String, Usuarios> todosLosUsuarios = new HashMap<>();
+
+		try {
+			File q = new File("src/main/java/ficheros/usuarioss.dat");
+			if(!q.isFile()){
+				q.createNewFile();
+			}else{
+				FileInputStream tmp = new FileInputStream("src/main/java/ficheros/usuarioss.dat");
+				ObjectInputStream aa = new ObjectInputStream(tmp);
+				todosLosUsuarios = (HashMap<String, Usuarios>) aa.readObject();
+				tmp.close();
+				aa.close();	
+			}
+		} catch (IOException | ClassNotFoundException e) {
+			System.out.println(e);
+		}
+		
+		try {
+			//Se agregan los diferentes usuarios al Hashmap.
+			todosLosUsuarios.put(ad1.getCorreoElectronico(), ad1);
+			//se guarda el objeto en un fichero y se cierran los sreams.
+			FileOutputStream tmp = new FileOutputStream("src/main/java/ficheros/usuarioss.dat", false);
+			ObjectOutputStream aa = new ObjectOutputStream(tmp);
+			aa.writeObject(todosLosUsuarios);
+			tmp.close();
+			tmp.flush();
+			aa.close();
+			aa.flush();
+		
+		} catch (FileNotFoundException ex) {
+			System.out.println(ex);
+		} catch (IOException ex) {
+			System.out.println(ex);
+		}
 	}
 	
 	public void traerProductos(){
@@ -341,7 +407,7 @@ public class Loged extends javax.swing.JFrame{
                pack();
                //limpia el texto de las palabras claves
                barraBusqueda.setText("");
-		//crearProductos();
+		//crearProductosyAdministradores();
 		
         }//GEN-LAST:event_BotonBusquedaActionPerformed
 

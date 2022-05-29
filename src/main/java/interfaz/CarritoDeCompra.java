@@ -28,6 +28,8 @@ import javax.swing.SwingConstants;
 import poo.javacorp.Productos;
 import poo.javacorp.Usuarios;
 import java.time.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class CarritoDeCompra extends javax.swing.JFrame {
@@ -249,8 +251,26 @@ public class CarritoDeCompra extends javax.swing.JFrame {
 		HashMap<LocalDateTime, HashMap<Usuarios, ArrayList<Productos>>> a = new HashMap<>();
 		HashMap<Usuarios, ArrayList<Productos>> productosDelUsuario = new HashMap<>();	
 		productosDelUsuario.put(usuario, losProductos.get(usuario));
-		a.put(fech, productosDelUsuario);
 		
+		FileInputStream tmpp;
+		File auxFi = new File("src/main/java/ficheros/ventass.dat");
+		if(auxFi.isFile()){
+			try {
+				tmpp = new FileInputStream("src/main/java/ficheros/ventass.dat");
+				ObjectInputStream aa = new ObjectInputStream(tmpp);
+				a = (HashMap<LocalDateTime, HashMap<Usuarios, ArrayList<Productos>>>)aa.readObject();
+				tmpp.close();
+				aa.close();
+				System.out.println(a);
+			} catch (FileNotFoundException ex) {
+				System.out.println(ex);
+			} catch (IOException | ClassNotFoundException ex) {
+				System.out.println(ex);
+			}
+		}
+		
+		//actualizo las ventas
+		a.put(fech, productosDelUsuario);
 		try {
 			//se guarda el objeto en un fichero y se cierran los streams.
 			FileOutputStream tmp = new FileOutputStream("src/main/java/ficheros/ventass.dat", false);

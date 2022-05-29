@@ -2,10 +2,8 @@ package interfaz;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import poo.javacorp.Usuarios;
 import poo.javacorp.Administrador;
@@ -16,10 +14,9 @@ public class Login extends javax.swing.JFrame {
 
 	public Login() {
 		initComponents();
-		this.setLocationRelativeTo(null);
 	}
 	
-	// COMPRUEBVA CREDENCIALES
+	// COMPRUEBA CREDENCIALES
 	public Usuarios comprobarCredenciales(String usuarioo, String password){
 		Usuarios usuario = null;
 		boolean existeUsuario;
@@ -63,6 +60,7 @@ public class Login extends javax.swing.JFrame {
                 jLabel3 = new javax.swing.JLabel();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                setTitle("Login");
 
                 jLabel1.setText("Usuario:");
 
@@ -88,7 +86,7 @@ public class Login extends javax.swing.JFrame {
                 });
 
                 registrarseBoton.setText("Registrarse");
-                registrarseBoton.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+                registrarseBoton.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
                 registrarseBoton.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 registrarseBotonActionPerformed(evt);
@@ -107,38 +105,37 @@ public class Login extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(67, 67, 67)
-                                                                                .addComponent(jLabel2))
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(70, 70, 70)
-                                                                                .addComponent(jLabel1)))
-                                                                .addGap(84, 84, 84)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                        .addComponent(username)
-                                                                        .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)))
+                                                                .addGap(67, 67, 67)
+                                                                .addComponent(jLabel2))
                                                         .addGroup(layout.createSequentialGroup()
-                                                                .addGap(61, 61, 61)
-                                                                .addComponent(botonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(207, 207, 207)
-                                                                                .addComponent(confirmarLogin))
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(272, 272, 272)
-                                                                                .addComponent(registrarseBoton)))))
+                                                                .addGap(70, 70, 70)
+                                                                .addComponent(jLabel1)))
+                                                .addGap(84, 84, 84)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(username)
+                                                        .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE))
                                                 .addGap(0, 140, Short.MAX_VALUE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jSeparator2)
-                                                        .addComponent(jSeparator1))))
+                                                .addComponent(jSeparator1)))
                                 .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(291, 291, 291))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jSeparator2)
+                                .addContainerGap())
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(botonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(registrarseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(132, 132, 132))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(confirmarLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(117, 117, 117))
                 );
                 layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,18 +152,15 @@ public class Login extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel2)
                                         .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                .addGap(38, 38, 38)
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(confirmarLogin)
-                                                .addGap(17, 17, 17)
-                                                .addComponent(registrarseBoton)
-                                                .addGap(15, 15, 15))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(botonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(24, 24, 24))))
+                                .addGap(18, 18, 18)
+                                .addComponent(confirmarLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(botonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(registrarseBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24))
                 );
 
                 pack();
@@ -177,9 +171,15 @@ public class Login extends javax.swing.JFrame {
 		if(!this.username.getText().equals("") && !password.getText().equals("")){
 			Usuarios s = comprobarCredenciales(this.username.getText(), password.getText());
 			if(s != null){
-				Loged log = new Loged(s);
-				this.dispose();
-				log.setVisible(true);
+				if(s instanceof Administrador){
+					VistaAdmin ad = new VistaAdmin(s);
+					this.dispose();
+					ad.setVisible(true);
+				}else{
+					Loged log = new Loged(s);
+					this.dispose();
+					log.setVisible(true);
+				}
 			}else{
 				confirmarLogin.setText("Credenciales incorrectas, vuelve a intentarlo.");
 			}

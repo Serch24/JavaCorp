@@ -59,13 +59,7 @@ public class VerProducto extends javax.swing.JFrame {
 			} catch (IOException | ClassNotFoundException e) {
 				stock = producto.getStockCantidad() >= cantidad;
 			}
-//			int totalStockDelProducto = productEnCarrito
-//							.entrySet()
-//							.stream()
-//							.filter(lista -> lista.getValue().contains(producto))
-//							.map(Map.Entry::getValue)
-//							.mapToInt(t -> t.get(0).getStockCantidad())
-//							.sum();
+
 			int totalStockDelProducto = productEnCarrito.entrySet().stream().filter(lista -> lista.getValue().contains(producto)).map(Map.Entry::getValue).toList()
 				.stream()
 				.map(a -> a.stream()
@@ -113,12 +107,6 @@ public class VerProducto extends javax.swing.JFrame {
 								.findFirst().get().getValue().stream().filter(p -> p.equals(producto)).mapToInt(a -> a.getStockCantidad()).sum();
 					proTmp.setStockCantidad(stockA + cantidad);
 					
-//					listaProductos = productEnCarrito.entrySet()
-//								.stream()
-//								.filter(user -> user.getKey().equals(usuario))
-//								.filter(lista -> !lista.getValue().contains(producto))
-//								.findFirst().get().getValue();
-					
 					listaProductos =  productEnCarrito.entrySet()
 										.stream()	
 										.filter(user -> user.getKey().equals(usuario))	
@@ -165,16 +153,18 @@ public class VerProducto extends javax.swing.JFrame {
         private void initComponents() {
 
                 imagenProducto = new javax.swing.JLabel();
-                caracteristicaProducto = new javax.swing.JLabel();
                 addCarrito = new javax.swing.JButton();
                 jLabel1 = new javax.swing.JLabel();
                 cantidadText = new javax.swing.JTextField();
                 errorLabel = new javax.swing.JLabel();
                 botonVolver = new javax.swing.JButton();
+                jScrollPane1 = new javax.swing.JScrollPane();
+                opinionTexarea = new javax.swing.JTextArea();
+                jLabel2 = new javax.swing.JLabel();
+                jScrollPane2 = new javax.swing.JScrollPane();
+                caracteristicaProducto = new javax.swing.JLabel();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-                caracteristicaProducto.setBackground(new java.awt.Color(204, 204, 255));
 
                 addCarrito.setText("Añadir al carrito");
                 addCarrito.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +188,16 @@ public class VerProducto extends javax.swing.JFrame {
                         }
                 });
 
+                opinionTexarea.setColumns(20);
+                opinionTexarea.setRows(5);
+                jScrollPane1.setViewportView(opinionTexarea);
+
+                jLabel2.setFont(new java.awt.Font("Source Han Sans KR Heavy", 2, 12)); // NOI18N
+                jLabel2.setText("Opinión");
+
+                caracteristicaProducto.setBackground(new java.awt.Color(204, 204, 255));
+                jScrollPane2.setViewportView(caracteristicaProducto);
+
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
@@ -208,26 +208,27 @@ public class VerProducto extends javax.swing.JFrame {
                                                 .addGap(214, 214, 214)
                                                 .addComponent(imagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
-                                                .addGap(229, 229, 229)
+                                                .addGap(239, 239, 239)
                                                 .addComponent(jLabel1)
                                                 .addGap(30, 30, 30)
                                                 .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(104, Short.MAX_VALUE)
+                                .addContainerGap(108, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(botonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(181, 181, 181)
-                                                .addComponent(addCarrito)
-                                                .addGap(116, 116, 116))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(caracteristicaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(104, 104, 104))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(83, 83, 83)))))
+                                                        .addComponent(jLabel2)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(botonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(181, 181, 181)
+                                                                .addComponent(addCarrito))
+                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(83, 83, 83))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(140, 140, 140))))
                 );
                 layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,12 +236,16 @@ public class VerProducto extends javax.swing.JFrame {
                                 .addGap(39, 39, 39)
                                 .addComponent(imagenProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(caracteristicaProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                                 .addGap(27, 27, 27)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel1)
                                         .addComponent(cantidadText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
                                 .addComponent(errorLabel)
                                 .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -305,6 +310,10 @@ public class VerProducto extends javax.swing.JFrame {
         private javax.swing.JLabel errorLabel;
         private javax.swing.JLabel imagenProducto;
         private javax.swing.JLabel jLabel1;
+        private javax.swing.JLabel jLabel2;
+        private javax.swing.JScrollPane jScrollPane1;
+        private javax.swing.JScrollPane jScrollPane2;
+        private javax.swing.JTextArea opinionTexarea;
         // End of variables declaration//GEN-END:variables
 
 }
